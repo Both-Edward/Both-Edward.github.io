@@ -93,7 +93,7 @@ const LANG_BUNDLES = {
     "dl_meta": "Distributed via GitHub Releases · MIT License",
     "foot_feedback": "Feedback",
     "foot_changelog": "Changelog",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   },
   "zh-CN": {
     "lang": "zh-CN",
@@ -150,7 +150,7 @@ const LANG_BUNDLES = {
     "dl_meta": "通过 GitHub Releases 分发 · MIT License",
     "foot_feedback": "问题反馈",
     "foot_changelog": "更新日志",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   },
   "zh-TW": {
     "lang": "zh-TW",
@@ -207,7 +207,7 @@ const LANG_BUNDLES = {
     "dl_meta": "透過 GitHub Releases 發布 · MIT License",
     "foot_feedback": "問題回報",
     "foot_changelog": "更新日誌",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   },
   "ja": {
     "lang": "ja",
@@ -264,7 +264,7 @@ const LANG_BUNDLES = {
     "dl_meta": "GitHub Releases で配布 · MIT License",
     "foot_feedback": "フィードバック",
     "foot_changelog": "更新履歴",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   },
   "fr": {
     "lang": "fr",
@@ -321,7 +321,7 @@ const LANG_BUNDLES = {
     "dl_meta": "Distribué via GitHub Releases · Licence MIT",
     "foot_feedback": "Signaler un problème",
     "foot_changelog": "Journal des modifications",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   },
   "ko": {
     "lang": "ko",
@@ -378,7 +378,7 @@ const LANG_BUNDLES = {
     "dl_meta": "GitHub Releases를 통해 배포 · MIT License",
     "foot_feedback": "문제 제보",
     "foot_changelog": "변경 로그",
-    "foot_copy": "Made with 💜 · Open Source on GitHub · はちみーをなめると〜"
+    "foot_copy": "Copyright © 2026 Edward. All Rights Reserved. · Open Source on GitHub · はちみーをなめると〜"
   }
 };
 
