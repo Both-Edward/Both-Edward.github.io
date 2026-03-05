@@ -1,2 +1,2 @@
 # Both-Edward.github.io
-Edward Portfolio
+Desktop Hachimi Webpage
