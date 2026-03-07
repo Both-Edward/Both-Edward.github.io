@@ -219,7 +219,8 @@ nav {
 .smart-chip-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,8,15,.97) 0%, rgba(8,8,15,.5) 55%, transparent 100%); display: flex; align-items: flex-end; padding: 16px 18px; }
 .smart-chip-text { font-size: .76rem; color: rgba(226,226,238,.85); line-height: 1.7; }
 .smart-chip-text .chip-title { color: var(--red); font-weight: 600; font-size: .8rem; display: block; margin-bottom: 4px; }
-.crisis { padding: 100px 60px; background: linear-gradient(135deg, rgba(255,59,48,.06) 0%, transparent 60%); text-align: center; position: relative; overflow: hidden; }
+.crisis { padding: 100px 60px; background: var(--mid); text-align: center; position: relative; overflow: hidden; }
+.crisis::after { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(255,59,48,.10) 0%, transparent 60%); pointer-events: none; }
 .crisis::before { content: '"'; position: absolute; top: -6rem; left: -1rem; font-family: 'Playfair Display', serif; font-size: 28rem; color: rgba(255,59,48,.04); pointer-events: none; line-height: 1; }
 .crisis-q { font-family: 'Noto Serif SC', serif; font-size: clamp(1.3rem,3vw,2rem); color: #fff; line-height: 1.7; max-width: 850px; margin: 0 auto 24px; }
 .crisis-src { font-size: .82rem; color: var(--red); letter-spacing: 2px; }
@@ -664,13 +665,13 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
     <div class="rev-r">
       <div class="era-badge" style="margin-top:20px">MeeGo · 最后的希望</div>
       <h2 class="era-title" style="font-size:clamp(1.4rem,3vw,2rem)">Nokia N9<br>好评无数却生不逢时</h2>
-      <p class="era-p">2010年，诺基亚与英特尔合作开发<strong>MeeGo操作系统</strong>。2011年，搭载MeeGo的<strong>诺基亚N9</strong>发布，凭借独特的设计和流畅体验赢得了不少口碑。</p>
-      <p class="era-p">但此刻，一场"<strong>特洛伊木马</strong>"正在上演——N9和MeeGo即将被战略性抛弃。</p>
+      <p class="era-p">2010年，诺基亚与英特尔合作开发<strong> MeeGo 操作系统</strong>。2011年，搭载 MeeGo 的<strong>诺基亚N9</strong>发布，凭借独特的设计和流畅体验赢得了不少口碑。</p>
+      <p class="era-p">但此刻，一场"<strong>特洛伊木马</strong>"正在上演——N9和 MeeGo 即将被战略性抛弃。</p>
       <div class="phone-stage" style="min-height:300px;margin-top:20px;">
         <div class="phone-glow" style="width:180px;height:260px;background:rgba(0,90,255,.4);top:50%;left:50%;transform:translate(-50%,-50%)"></div>
         <div class="phone-img" style="max-width:240px;">
           <img src="./image/Nokia N9.jpg" alt="Nokia N9" onerror="this.style.minHeight='280px';this.style.background='#001a30'">
-          <div class="phone-caption"><strong>Nokia N9 · 2011</strong>被放弃的MeeGo旗舰 · 口碑极佳却戛然而止</div>
+          <div class="phone-caption"><strong>Nokia N9 · 2011</strong>被放弃的 MeeGo 旗舰 · 口碑极佳却戛然而止</div>
         </div>
       </div>
     </div>
@@ -684,7 +685,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </div>
 
 <!-- TROJAN HORSE -->
-<section class="era era-alt" id="trojan">
+<section class="era" id="trojan">
   <div class="era-inner">
     <div class="rev-l">
       <div class="era-badge red">"特洛伊木马" · 2010–2013</div>
@@ -692,9 +693,9 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
       <p class="era-p">2010年，<strong>斯蒂芬·埃洛普</strong>上任诺基亚CEO——他曾是美国微软Office部门负责人。他上任后做出了一个争议巨大的决定：</p>
       <div class="hl-box red">
         <span class="hl-label">💣 否定三连</span>
-        <p>① <strong>立刻放弃</strong>已接近成熟的MeeGo操作系统<br>
+        <p>① <strong>立刻放弃</strong>已接近成熟的 MeeGo 操作系统<br>
         ② <strong>拒绝</strong>与已成气候的安卓合作<br>
-        ③ 转而选择与微软结盟，<strong>押注Windows Phone</strong></p>
+        ③ 转而选择与微软结盟，<strong>押注 Windows Phone</strong></p>
       </div>
       <p class="era-p" style="margin-top:18px">2011年10月26日，<strong>诺基亚Lumia 800</strong>发布，全球首款Windows Phone手机。之后又发布Lumia 900、Lumia 920等机型，但最终反响平平。</p>
       <div class="detail-list">
@@ -748,17 +749,17 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </section>
 
 <!-- TWO BOATS -->
-<section class="era" style="padding-top:40px">
+<section class="era era-alt" style="padding-top:40px">
   <div class="era-inner rev" style="max-width:1200px;margin:0 auto;">
     <div class="rev-r">
       <div class="era-badge red">战略困境 · 2008–2011</div>
       <h2 class="era-title">脚踩两只船<br>最终两头落空</h2>
-      <p class="era-p">回顾2008至2011年，诺基亚的战略困境体现为<strong>"脚踩两只船"</strong>——既想开发代表未来的MeeGo，又无法放弃仍在贡献大量现金流的塞班。</p>
+      <p class="era-p">回顾2008至2011年，诺基亚的战略困境体现为<strong>"脚踩两只船"</strong>——既想开发代表未来的 MeeGo，又无法放弃仍在贡献大量现金流的塞班。</p>
       <div class="detail-list">
-        <div class="detail-item"><div class="di-dot red"></div><p><strong>现金牛的诱惑</strong>：塞班直到2010年仍支撑数亿部智能手机销量，管理层希望用其利润为MeeGo研发输血</p></div>
+        <div class="detail-item"><div class="di-dot red"></div><p><strong>现金牛的诱惑</strong>：塞班直到2010年仍支撑数亿部智能手机销量，管理层希望用其利润为 MeeGo 研发输血</p></div>
         <div class="detail-item"><div class="di-dot red"></div><p><strong>内部生态阻力</strong>：塞班在诺基亚内部拥有庞大生态——成千上万的工程师、成熟的项目管理流程和深厚的运营商关系，完全抛弃塞班意味着巨大内部阻力</p></div>
-        <div class="detail-item"><div class="di-dot red"></div><p><strong>对MeeGo过度自信</strong>：误判了转型所需时间，认为依靠改进塞班足以在MeeGo完善前维持竞争力</p></div>
-        <div class="detail-item"><div class="di-dot red"></div><p><strong>领导层犹豫不决</strong>：研发、营销和管理注意力等资源被分散——MeeGo因投入不足而难产，塞班的改进又只是修修补补</p></div>
+        <div class="detail-item"><div class="di-dot red"></div><p><strong>对 MeeGo 过度自信</strong>：误判了转型所需时间，认为依靠改进塞班足以在 MeeGo 完善前维持竞争力</p></div>
+        <div class="detail-item"><div class="di-dot red"></div><p><strong>领导层犹豫不决</strong>：研发、营销和管理注意力等资源被分散—— MeeGo 因投入不足而难产，塞班的改进又只是修修补补</p></div>
       </div>
     </div>
     <div class="rev-l" style="display:flex;align-items:center;justify-content:center;">
@@ -774,7 +775,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </section>
 
 <!-- ===== DATA CHARTS SECTION ===== -->
-<section id="charts" style="padding:80px 60px;background:var(--mid);position:relative;overflow:hidden;">
+<section id="charts" style="padding:80px 60px;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,90,255,.07) 0%,transparent 70%);pointer-events:none;"></div>
   <div class="sec-head rev" style="padding:0 0 60px;">
     <span class="sec-label">数据可视化</span>
@@ -1173,7 +1174,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </div>
 
 <!-- TIMELINE -->
-<section id="timeline" style="background:var(--mid);padding:20px 0 60px;">
+<section id="timeline" style="padding:20px 0 60px;">
   <div class="sec-head rev"><span class="sec-label">时间轴</span><h2 class="sec-title">帝国兴亡之路</h2></div>
   <div class="tl-wrap">
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">1865</div></div><div class="tl-con"><div class="tl-dot"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-r">诞生</span><div class="tl-ev">诺基亚成立于芬兰坦佩雷</div><div class="tl-d">起初是一家木材纸浆厂，随后扩张至橡胶、电缆、消费电子等多个领域。</div></div></div>
@@ -1185,7 +1186,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2005</div></div><div class="tl-con"><div class="tl-dot gold"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-p">全盛</span><div class="tl-ev">出货量2.64亿部 · 全球市占率超40%</div><div class="tl-d">是摩托罗拉的1.8倍。同年谷歌收购安卓（5000万美元），乔布斯正在学习造手机——风暴酝酿。</div></div></div>
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2007</div></div><div class="tl-con"><div class="tl-dot red"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-f">警示</span><div class="tl-ev">iPhone发布 · 诺基亚CEO不以为然</div><div class="tl-d">次年诺基亚销售额比预期低29%，iPhone智能手机市占率逼近13%，苹果市值超越诺基亚。</div></div></div>
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2008</div></div><div class="tl-con"><div class="tl-dot red"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-f">反击</span><div class="tl-ev">HTC Dream · 全球首款安卓手机发布</div><div class="tl-d">开放手机联盟（Open Handset Alliance）成立（三星、LG、索尼、HTC、摩托罗拉），三星、索尼迅速跟进发布安卓手机。</div></div></div>
-    <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2010</div></div><div class="tl-con"><div class="tl-dot red"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-f">跌落</span><div class="tl-ev">安卓市占率正式超越塞班 · 埃洛普上任</div><div class="tl-d">埃洛普发出"燃烧平台"备忘录，随即放弃MeeGo，押注Windows Phone。Nokia N9口碑良好却被战略性抛弃。</div></div></div>
+    <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2010</div></div><div class="tl-con"><div class="tl-dot red"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-f">跌落</span><div class="tl-ev">安卓市占率正式超越塞班 · 埃洛普上任</div><div class="tl-d">埃洛普发出"燃烧平台"备忘录，随即放弃 MeeGo，押注Windows Phone。Nokia N9口碑良好却被战略性抛弃。</div></div></div>
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2011</div></div><div class="tl-con"><div class="tl-dot red"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-f">押注</span><div class="tl-ev">Nokia Lumia 800发布</div><div class="tl-d">全球首款Windows Phone手机上市，反响平平。WP7无法升级WP8，背刺老用户。</div></div></div>
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2013</div></div><div class="tl-con"><div class="tl-dot gray"></div><div class="tl-line"></div></div><div class="tl-body"><span class="tl-tag tag-e">终局</span><div class="tl-ev">微软72亿美元收购诺基亚设备部门</div><div class="tl-d">"我们没做错什么，但不知怎么的，我们输了。"</div></div></div>
     <div class="tl-item"><div class="tl-yr-col"><div class="tl-yr">2016</div></div><div class="tl-con"><div class="tl-dot gray"></div></div><div class="tl-body"><span class="tl-tag tag-e">熄灭</span><div class="tl-ev">赫尔辛基老厂房霓虹灯牌熄灭</div><div class="tl-d">那里曾年产1.5亿台手机，如今只剩风穿过锈蚀的桁架。诺基亚品牌悄然淡出手机前台。</div></div></div>
@@ -1193,6 +1194,21 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </section>
 
 <!-- MISSED CHANCES -->
+<!-- COMPARE -->
+<section class="era era-alt" id="compare" style="padding:80px 60px;">
+  <div class="sec-head rev"><span class="sec-label">对比之下</span><h2 class="sec-title">谁接过了王冠？</h2></div>
+  <div class="cmp-grid">
+    <div class="cmp-card apple rev-l">
+      <div class="cmp-brand">Apple</div>
+      <div class="cmp-sub">颠覆式创新者</div>
+    </div>
+    <div class="cmp-card samsung rev-r">
+      <div class="cmp-brand">Samsung</div>
+      <div class="cmp-sub">快速跟随者 · 全产业链玩家</div>
+    </div>
+  </div>
+</section>
+
 <section id="analysis" style="padding:80px 60px;">
   <div class="sec-head rev">
     <span class="sec-label">关键节点</span>
@@ -1208,12 +1224,12 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
     <div class="chance-card">
       <span class="chance-yr">2008</span>
       <div class="chance-title">错过加入安卓生态的机会</div>
-      <div class="chance-body">有机会与安卓深度合作，但诺基亚<strong>希望保持软硬件一体化的控制权</strong>，不愿依赖谷歌，认为凭自身实力足以打造MeeGo。且当时安卓尚未成熟，诺基亚对<strong>开源安卓系统</strong>的<strong>商业前景</strong>存有疑虑。</div>
+      <div class="chance-body">有机会与安卓深度合作，但诺基亚<strong>希望保持软硬件一体化的控制权</strong>，不愿依赖谷歌，认为凭自身实力足以打造 MeeGo。且当时安卓尚未成熟，诺基亚对<strong>开源安卓系统</strong>的<strong>商业前景</strong>存有疑虑。</div>
     </div>
     <div class="chance-card">
       <span class="chance-yr">2010</span>
-      <div class="chance-title">放弃MeeGo，押注Windows Phone</div>
-      <div class="chance-body">埃洛普认为MeeGo<strong>开发进度缓慢、生态建设不足</strong>，难以快速应对iPhone和安卓的冲击。因此选择与微软结盟，期望通过Windows Phone实现<strong>差异化</strong>并加速推出新产品。——事实证明这是压死骆驼的最后一根稻草。</div>
+      <div class="chance-title">放弃 MeeGo，押注 Windows Phone</div>
+      <div class="chance-body">埃洛普认为 MeeGo<strong>开发进度缓慢、生态建设不足</strong>，难以快速应对 iPhone 和安卓的冲击。因此选择与微软结盟，期望通过 Windows Phone 实现<strong>差异化</strong>并加速推出新产品。——事实证明这是压死骆驼的最后一根稻草。</div>
     </div>
     <div class="chance-card">
       <span class="chance-yr">2011</span>
@@ -1236,8 +1252,8 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
       <div class="fail-icon">⚓</div>
       <h3 class="fail-title">沉没成本谬误与战略惰性</h3>
       <div class="fail-body">
-        <p>2008-2010年间，诺基亚投入<strong>数十亿美元改进塞班</strong>而非全面转向新系统。试图用Qt框架统一塞班和MeeGo的开发，结果两者都未成功。</p>
-        <br><p>对MeeGo既希望开发出来以应对新兴智能系统的围剿，又担心其冲击塞班销量的矛盾态度（<strong>"双重困境"</strong>）导致资源分散。奥利拉坦言：公司担心承认塞班失败会损害形象——这种对过去投入的情感依附，阻碍了果断转向。</p>
+        <p>2008-2010年间，诺基亚投入<strong>数十亿美元改进塞班</strong>而非全面转向新系统。试图用Qt框架统一塞班和 MeeGo 的开发，结果两者都未成功。</p>
+        <br><p>对 MeeGo 既希望开发出来以应对新兴智能系统的围剿，又担心其冲击塞班销量的矛盾态度（<strong>"双重困境"</strong>）导致资源分散。奥利拉坦言：公司担心承认塞班失败会损害形象——这种对过去投入的情感依附，阻碍了果断转向。</p>
         <br><p>这体现了<strong>"沉没成本偏见"（Sunk Cost Bias）</strong>的典型表现，即领导层因已投入Symbian而忽略新兴技术；也反映了<strong>决策理论</strong>：如Kahneman的<strong>"前景理论"（Prospect Theory）</strong>，强调损失厌恶导致诺基亚不愿放弃旧系统。</p>
         <br><p>启示：领导者应定期审视资源分配，以未来潜力而非过去投入为依据，及时止损并转向。（沉没成本不参与重大决策）</p>
       </div>
@@ -1294,8 +1310,8 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
     </div>
     <div class="counter-card">
       <span class="counter-if">如果 · 2010年</span>
-      <div class="counter-title">坚持全力投入MeeGo</div>
-      <div class="counter-body">可能形成<strong>iOS、安卓、MeeGo三足鼎立</strong>的局面。Nokia N9已证明MeeGo有极强的竞争力。</div>
+      <div class="counter-title">坚持全力投入 MeeGo </div>
+      <div class="counter-body">可能形成<strong>iOS、安卓、MeeGo 三足鼎立</strong>的局面。Nokia N9已证明 MeeGo 有极强的竞争力，如果能够加大投入完善开发，那么 MeeGo 有望成为主流操作系统之一。</div>
     </div>
     <div class="counter-card">
       <span class="counter-if">然而</span>
@@ -1305,20 +1321,102 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   </div>
 </section>
 
-<!-- COMPARE -->
-<section class="era era-alt" id="compare" style="padding:80px 60px;">
-  <div class="sec-head rev"><span class="sec-label">对比之下</span><h2 class="sec-title">谁接过了王冠？</h2></div>
-  <div class="cmp-grid">
-    <div class="cmp-card apple rev-l">
-      <div class="cmp-brand">Apple</div>
-      <div class="cmp-sub">颠覆式创新者</div>
+<!-- REPLAY SECTION -->
+<section style="padding:80px 60px;background:var(--mid);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,90,255,.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="sec-head rev" style="padding-top:0;">
+    <span class="sec-label">复盘推演</span>
+    <h2 class="sec-title">如果重来，诺基亚应该怎么做？</h2>
+    <p class="sec-desc">回顾四次错过的翻盘机会，逐一拆解最优决策路径与风险评估</p>
+  </div>
+  <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px;">
+
+    <!-- 2005 -->
+    <div class="fail-card rev" style="background:var(--card);border-radius:16px;padding:44px 48px;position:relative;overflow:hidden;transition:background .4s;">
+      <div class="fail-n">2005</div>
+      <div class="fail-icon">📱</div>
+      <h3 class="fail-title">内部触屏项目遭否决：应建立创新孵化器</h3>
+      <div class="fail-body">
+        <p>领导层应当采用<strong>「创新孵化器」模式</strong>：成立独立的小型专项团队（5–10人），分配专用研发预算（约占整体 R&D 的 5%），在6个月内完成触屏原型开发，并通过 A/B 测试收集用户反馈。</p>
+        <br>
+        <div class="hl-box" style="margin-bottom:14px;">
+          <span class="hl-label">⚡ 风险评估</span>
+          <p>短期成本约增加 <strong>10%</strong>，但若原型验证成功，可在 iPhone 正式发布前率先抢占触屏市场份额达 <strong>20%</strong>。</p>
+        </div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="di-dot"></div><p><strong>第一步</strong>：评估外部市场趋势报告（如 Gartner 预测），确认触屏方向的战略必要性</p></div>
+          <div class="detail-item"><div class="di-dot"></div><p><strong>第二步</strong>：组建跨部门创新团队，融合硬件、软件与用户体验设计人才</p></div>
+          <div class="detail-item"><div class="di-dot"></div><p><strong>第三步</strong>：设定明确的阶段性 KPI，例如用户满意度达到 80% 以上</p></div>
+          <div class="detail-item"><div class="di-dot"></div><p><strong>第四步</strong>：若阶段目标未达成，快速迭代或果断转向，避免在错误方向上持续投入</p></div>
+        </div>
+      </div>
     </div>
-    <div class="cmp-card samsung rev-r">
-      <div class="cmp-brand">Samsung</div>
-      <div class="cmp-sub">快速跟随者 · 全产业链玩家</div>
+
+    <!-- 2008 -->
+    <div class="fail-card rev" style="background:var(--card);border-radius:16px;padding:44px 48px;position:relative;overflow:hidden;transition:background .4s;transition-delay:.08s;">
+      <div class="fail-n">2008</div>
+      <div class="fail-icon">🤖</div>
+      <h3 class="fail-title">错过安卓生态：应采取双轨并行策略</h3>
+      <div class="fail-body">
+        <p>建议立即加入安卓开放手机联盟，同时执行<strong>"双轨制"策略</strong>：一方面维护塞班在存量用户中的市场地位，另一方面同步启动安卓产品线研发，以覆盖增量市场（尤其是亚洲新兴市场）。</p>
+        <br>
+        <div class="hl-box red" style="margin-bottom:14px;">
+          <span class="hl-label">⚡ 风险评估</span>
+          <p>塞班存量用户流失风险较高，潜在短期市场损失约 <strong>15%</strong>；但安卓路线可覆盖高增长新兴市场，预期1年内拉动销量提升 <strong>30%</strong>。</p>
+        </div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第一步</strong>：与谷歌积极谈判开源协议，明确合作条款与品牌独立边界</p></div>
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第二步</strong>：追加约 <strong>1 亿美元</strong>专项投入，开发诺基亚特色安卓定制 UI，构建差异化优势</p></div>
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第三步</strong>：分阶段推进市场落地——优先在中低端机型验证，积累数据与口碑</p></div>
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第四步</strong>：持续监控生态兼容性，提前规避潜在专利纠纷风险</p></div>
+        </div>
+      </div>
     </div>
+
+    <!-- 2010 -->
+    <div class="fail-card rev" style="background:var(--card);border-radius:16px;padding:44px 48px;position:relative;overflow:hidden;transition:background .4s;transition-delay:.16s;">
+      <div class="fail-n">2010</div>
+      <div class="fail-icon">🚀</div>
+      <h3 class="fail-title">放弃 MeeGo：应坚守高端旗舰，扩展开发者生态</h3>
+      <div class="fail-body">
+        <p>应坚持以 MeeGo 作为高端旗舰系统的核心路线，同时深化与英特尔的技术合作，积极构建开发者生态。N9 已经证明 MeeGo 具备强劲竞争力，关键在于给它足够的资源与时间。</p>
+        <br>
+        <div class="hl-box gold" style="margin-bottom:14px;">
+          <span class="hl-label">⚡ 风险评估</span>
+          <p>完整开发周期预计约需 <strong>2 年</strong>，短期内存在市场空窗期风险；但若成功落地，可实现差异化竞争，彻底摆脱对 Windows Phone 的战略依赖。</p>
+        </div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="di-dot gold"></div><p><strong>第一步</strong>：注入额外 <strong>2 亿美元</strong>专项资金，用于吸引第三方开发者加入 MeeGo 生态</p></div>
+          <div class="detail-item"><div class="di-dot gold"></div><p><strong>第二步</strong>：推出开发者激励计划，设立奖金池与创新大赛，快速扩充应用生态</p></div>
+          <div class="detail-item"><div class="di-dot gold"></div><p><strong>第三步</strong>：与三星、HTC等硬件厂商分享 MeeGo 核心技术，形成开放 MeeGo 联盟共同对抗 iOS 与安卓</p></div>
+          <div class="detail-item"><div class="di-dot gold"></div><p><strong>预期影响</strong>：高端市场份额有望恢复约 <strong>10%</strong>，并为未来 AI 功能集成奠定坚实的系统基础</p></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2011 -->
+    <div class="fail-card rev" style="background:var(--card);border-radius:16px;padding:44px 48px;position:relative;overflow:hidden;transition:background .4s;transition-delay:.24s;">
+      <div class="fail-n">2011</div>
+      <div class="fail-icon">🔀</div>
+      <h3 class="fail-title">拒绝转向安卓：应转为多平台并行策略</h3>
+      <div class="fail-body">
+        <p>应果断调整为<strong>「多平台策略」</strong>：以 Windows Phone 为主要合作方向，同时引入安卓作为辅线，以更广泛的平台覆盖对冲单一生态风险。</p>
+        <br>
+        <div class="hl-box red" style="margin-bottom:14px;">
+          <span class="hl-label">⚡ 风险评估</span>
+          <p>多平台策略存在品牌定位分裂的隐患，但可有效覆盖更广泛的用户群体，为诺基亚争取更多的战略腾挪空间。</p>
+        </div>
+        <div class="detail-list">
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第一步</strong>：开展大规模市场调研，客观评估用户对 Windows Phone 与安卓的实际偏好</p></div>
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第二步</strong>：快速推出安卓版 Lumia 系列，复用现有硬件设计优势降低开发成本</p></div>
+          <div class="detail-item"><div class="di-dot red"></div><p><strong>第三步</strong>：基于销售数据与用户反馈动态调整两个平台的资源投入比例，逐步将安卓比重提升至 <strong>40%</strong></p></div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
+<!-- END REPLAY SECTION -->
 
 <!-- LESSONS -->
 <section class="lesson-sec" id="lessons">
