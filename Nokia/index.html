@@ -8,6 +8,103 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="./CSS/fonts.css" rel="stylesheet">
 <style>
+/* ===== THANK YOU SECTION ===== */
+.thankyou-sec {
+  padding: 100px 60px;
+  background: var(--dark);
+  border-top: 1px solid rgba(0,90,255,.15);
+  position: relative;
+  overflow: hidden;
+}
+.thankyou-sec::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,90,255,.08) 0%, transparent 70%),
+              radial-gradient(ellipse 40% 40% at 10% 100%, rgba(0,212,255,.05) 0%, transparent 60%);
+  pointer-events: none;
+}
+.ty-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 52px;
+}
+.ty-header {
+  text-align: center;
+}
+.ty-title {
+  font-family: 'Noto Serif SC', serif;
+  font-size: clamp(2.8rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  background: linear-gradient(150deg, #fff 0%, rgba(255,255,255,.6) 40%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 12px 0 10px;
+}
+.ty-sub {
+  font-size: 1rem;
+  color: var(--gray);
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.ty-table-wrap {
+  width: 100%;
+}
+.ty-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .88rem;
+}
+.ty-table thead tr {
+  background: rgba(0,90,255,.12);
+  border-bottom: 2px solid rgba(0,212,255,.3);
+}
+.ty-table th {
+  padding: 16px 24px;
+  text-align: left;
+  font-size: .68rem;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 600;
+}
+.ty-table th:last-child { text-align: left; }
+.ty-table tbody tr {
+  border-bottom: 1px solid rgba(0,90,255,.1);
+  transition: background .25s;
+}
+.ty-table tbody tr:hover {
+  background: rgba(0,90,255,.06);
+}
+.ty-table tbody tr:last-child { border-bottom: none; }
+.ty-table td {
+  padding: 18px 24px;
+  color: var(--gray);
+  line-height: 1.6;
+  vertical-align: middle;
+}
+.ty-table td:first-child {
+  color: rgba(226,226,238,.9);
+  font-weight: 500;
+  font-family: 'Noto Serif SC', serif;
+  letter-spacing: 1px;
+}
+.ty-table td:nth-child(2) {
+  color: var(--accent);
+  font-size: .82rem;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 1px;
+}
+/* ===== END THANK YOU SECTION ===== */
+
 :root {
   --blue: #005AFF;
   --dark: #08080F;
@@ -915,6 +1012,31 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   </div>
 </section>
 
+<!-- THANK YOU SECTION -->
+<section class="thankyou-sec" id="thankyou">
+  <div class="ty-inner">
+    <div class="ty-header rev">
+      <span class="sec-label">MERCI · 谢谢</span>
+      <h2 class="ty-title">感谢聆听</h2>
+      <p class="ty-sub">Group 5 全体敬上</p>
+    </div>
+    <div class="ty-table-wrap rev" style="transition-delay:.2s">
+      <table class="ty-table">
+        <thead>
+          <tr>
+            <th>成员</th>
+            <th>学号</th>
+            <th>贡献</th>
+          </tr>
+        </thead>
+        <tbody id="team-tbody">
+          <!-- Populated by team.js -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="ft-left">
@@ -932,6 +1054,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   </div>
 </footer>
 
+<script src="./JavaScript/team.js"></script>
 <script>
 const pts=document.getElementById('pts');
 pts.style.cssText='position:absolute;inset:0;pointer-events:none;overflow:hidden;';
