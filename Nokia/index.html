@@ -773,6 +773,399 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   </div>
 </section>
 
+<!-- ===== DATA CHARTS SECTION ===== -->
+<section id="charts" style="padding:80px 60px;background:var(--mid);position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,90,255,.07) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="sec-head rev" style="padding:0 0 60px;">
+    <span class="sec-label">数据可视化</span>
+    <h2 class="sec-title">帝国的数字轨迹</h2>
+    <p class="sec-desc">2007–2013年，从市场份额、市值、营收到出货量，四个维度还原诺基亚的崩塌全过程</p>
+  </div>
+
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+
+    <!-- Chart 1: Market Share Stacked 100% Bar -->
+    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">市场份额</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">智能手机市场占有率</div>
+        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">100% 堆叠柱状图（%）</div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="flex:1;min-width:0;"><canvas id="chartMarketShare" style="width:100%;"></canvas></div>
+        <div id="legendMarketShare" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
+      </div>
+    </div>
+
+    <!-- Chart 2: Market Cap Line -->
+    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.08s">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">市值对比</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">市值变化趋势</div>
+        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">折线图（十亿美元）</div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="flex:1;min-width:0;"><canvas id="chartMarketCap" style="width:100%;"></canvas></div>
+        <div id="legendMarketCap" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
+      </div>
+    </div>
+
+    <!-- Chart 3: Sales Revenue Bar -->
+    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.16s">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">手机营收</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">手机业务营业收入</div>
+        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">柱形图（十亿美元，约估）</div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="flex:1;min-width:0;"><canvas id="chartSalesRevenue" style="width:100%;"></canvas></div>
+        <div id="legendSalesRevenue" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
+      </div>
+    </div>
+
+    <!-- Chart 4: Sales Volume Bar -->
+    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.24s">
+      <div style="margin-bottom:20px;">
+        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">出货量</div>
+        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">智能手机出货量</div>
+        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">柱形图（百万台）</div>
+      </div>
+      <div style="display:flex;gap:24px;align-items:flex-start;">
+        <div style="flex:1;min-width:0;"><canvas id="chartSalesVolume" style="width:100%;"></canvas></div>
+        <div id="legendSalesVolume" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ===== END DATA CHARTS SECTION ===== -->
+
+<script src="./JavaScript/market_share.js"></script>
+<script src="./JavaScript/market_cap.js"></script>
+<script src="./JavaScript/sales_revenue.js"></script>
+<script src="./JavaScript/sales_volume.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(function() {
+  // ── Shared palette ──────────────────────────────────────────────────
+  const COLORS = {
+    Nokia:   { line:'#00D4FF', fill:'rgba(0,212,255,.75)',   light:'rgba(0,212,255,.18)' },
+    Apple:   { line:'#FFFFFF', fill:'rgba(255,255,255,.75)', light:'rgba(255,255,255,.15)' },
+    Android: { line:'#4DB8FF', fill:'rgba(77,184,255,.75)',  light:'rgba(77,184,255,.15)' },
+    Samsung: { line:'#FFD60A', fill:'rgba(255,214,10,.75)',  light:'rgba(255,214,10,.15)' },
+    HTC:     { line:'#FF7043', fill:'rgba(255,112,67,.75)',  light:'rgba(255,112,67,.15)' },
+    Motorola:{ line:'#AB47BC', fill:'rgba(171,71,188,.75)',  light:'rgba(171,71,188,.15)' },
+    LG:      { line:'#26A69A', fill:'rgba(38,166,154,.75)',  light:'rgba(38,166,154,.15)' },
+    Sony:    { line:'#EF5350', fill:'rgba(239,83,80,.75)',   light:'rgba(239,83,80,.15)' },
+    Other:   { line:'#455A64', fill:'rgba(69,90,100,.75)',   light:'rgba(69,90,100,.15)' },
+  };
+
+  const YEARS = [2007,2008,2009,2010,2011,2012,2013];
+
+  // Common Chart.js defaults for dark theme
+  Chart.defaults.color = '#8E8EA0';
+  Chart.defaults.borderColor = 'rgba(0,90,255,.15)';
+  Chart.defaults.font.family = "'Noto Sans SC', sans-serif";
+  Chart.defaults.font.size = 11;
+
+  const baseGridOpts = {
+    color: 'rgba(0,90,255,.12)',
+    drawBorder: false,
+  };
+  const baseTick = { color:'#8E8EA0', padding:6 };
+  const baseTooltip = {
+    backgroundColor:'rgba(8,8,15,.92)',
+    borderColor:'rgba(0,90,255,.35)',
+    borderWidth:1,
+    titleColor:'#E2E2EE',
+    bodyColor:'#8E8EA0',
+    padding:10,
+    cornerRadius:8,
+  };
+
+  function makeLegend(containerId, items) {
+    const el = document.getElementById(containerId);
+    if (!el) return;
+    items.forEach(({label, color}) => {
+      const row = document.createElement('div');
+      row.style.cssText = 'display:flex;align-items:center;gap:6px;white-space:nowrap;';
+      row.innerHTML = `<span style="width:10px;height:10px;border-radius:2px;background:${color};flex-shrink:0;display:inline-block;"></span><span style="font-size:.68rem;color:#8E8EA0;letter-spacing:.5px;">${label}</span>`;
+      el.appendChild(row);
+    });
+  }
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 1. Market Share – 100% Stacked Bar
+  // ─────────────────────────────────────────────────────────────────────
+  (function() {
+    const rows = { Nokia:[], Apple:[], Android:[], Other:[] };
+    YEARS.forEach(y => {
+      const d = marketShareData[y];
+      const nokia   = d.Nokia   || 0;
+      const apple   = d.iPhone  || 0;
+      const android = d.Android || 0;
+      const other   = Math.max(0, 100 - nokia - apple - android);
+      rows.Nokia.push(nokia);
+      rows.Apple.push(apple);
+      rows.Android.push(android);
+      rows.Other.push(parseFloat(other.toFixed(1)));
+    });
+
+    const data = {
+      labels: YEARS.map(String),
+      datasets: [
+        { label:'诺基亚', data:rows.Nokia,   backgroundColor:COLORS.Nokia.fill,   borderColor:COLORS.Nokia.line,   borderWidth:1, stack:'s' },
+        { label:'Apple', data:rows.Apple,   backgroundColor:COLORS.Apple.fill,   borderColor:COLORS.Apple.line,   borderWidth:1, stack:'s' },
+        { label:'Android', data:rows.Android, backgroundColor:COLORS.Android.fill, borderColor:COLORS.Android.line, borderWidth:1, stack:'s' },
+        { label:'其他', data:rows.Other,   backgroundColor:COLORS.Other.fill,   borderColor:COLORS.Other.line,   borderWidth:1, stack:'s' },
+      ]
+    };
+
+    new Chart(document.getElementById('chartMarketShare'), {
+      type:'bar', data,
+      options:{
+        responsive:true, maintainAspectRatio:true, aspectRatio:1.4,
+        plugins:{ legend:{display:false}, tooltip:{...baseTooltip, callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y}%`}} },
+        scales:{
+          x:{ stacked:true, grid:baseGridOpts, ticks:baseTick, border:{display:false} },
+          y:{ stacked:true, min:0, max:100, grid:baseGridOpts, ticks:{...baseTick, callback:v=>v+'%'}, border:{display:false} }
+        }
+      }
+    });
+
+    makeLegend('legendMarketShare', [
+      {label:'诺基亚', color:COLORS.Nokia.fill},
+      {label:'Apple',  color:COLORS.Apple.fill},
+      {label:'Android',color:COLORS.Android.fill},
+      {label:'其他',   color:COLORS.Other.fill},
+    ]);
+  })();
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 2. Market Cap – Line Chart
+  // ─────────────────────────────────────────────────────────────────────
+  (function() {
+    // Compute Samsung (top android brand) market cap per year
+    const samsungCap = YEARS.map(y => {
+      const t = marketCapData.androidTop3[y];
+      return (t && t.Samsung) ? t.Samsung : null;
+    });
+
+    const datasets = [
+      {
+        label:'Apple',
+        data: YEARS.map(y => marketCapData.Apple[y]),
+        borderColor: COLORS.Apple.line,
+        backgroundColor: COLORS.Apple.light,
+        borderWidth:2, pointRadius:4, pointHoverRadius:6,
+        tension:.35, fill:false,
+      },
+      {
+        label:'诺基亚',
+        data: YEARS.map(y => marketCapData.Nokia[y]),
+        borderColor: COLORS.Nokia.line,
+        backgroundColor: COLORS.Nokia.light,
+        borderWidth:2, pointRadius:4, pointHoverRadius:6,
+        tension:.35, fill:false,
+      },
+      {
+        label:'Samsung',
+        data: samsungCap,
+        borderColor: COLORS.Samsung.line,
+        backgroundColor: COLORS.Samsung.light,
+        borderWidth:2, pointRadius:4, pointHoverRadius:6,
+        tension:.35, fill:false,
+        spanGaps:true,
+      },
+    ];
+
+    // Custom plugin: draw red arrow + label pointing at 2008 (次贷危机)
+    const crisisArrowPlugin = {
+      id: 'crisisArrow',
+      afterDraw(chart) {
+        const { ctx, scales: { x, y } } = chart;
+        const xPos = x.getPixelForValue(1); // index 1 = 2008
+        const yPos = y.getPixelForValue(59.29); // Nokia 2008 market cap
+
+        ctx.save();
+
+        const arrowTipX = xPos;
+        const arrowTipY = yPos - 8;
+        const arrowStartX = xPos - 30;
+        const arrowStartY = yPos - 68;
+
+        // Arrow shaft
+        ctx.strokeStyle = '#FF3B30';
+        ctx.fillStyle = '#FF3B30';
+        ctx.lineWidth = 1.8;
+        ctx.setLineDash([]);
+        ctx.beginPath();
+        ctx.moveTo(arrowStartX, arrowStartY);
+        ctx.lineTo(arrowTipX, arrowTipY);
+        ctx.stroke();
+
+        // Arrowhead
+        const angle = Math.atan2(arrowTipY - arrowStartY, arrowTipX - arrowStartX);
+        const headLen = 9;
+        ctx.beginPath();
+        ctx.moveTo(arrowTipX, arrowTipY);
+        ctx.lineTo(arrowTipX - headLen * Math.cos(angle - Math.PI/6), arrowTipY - headLen * Math.sin(angle - Math.PI/6));
+        ctx.lineTo(arrowTipX - headLen * Math.cos(angle + Math.PI/6), arrowTipY - headLen * Math.sin(angle + Math.PI/6));
+        ctx.closePath();
+        ctx.fill();
+
+        // Label
+        const labelText = '次贷危机';
+        const labelCX = arrowStartX - 2;
+        const labelCY = arrowStartY - 16;
+        ctx.font = '600 11px "Noto Sans SC", sans-serif';
+        const tw = ctx.measureText(labelText).width;
+        const pad = 6;
+        const bx = labelCX - tw/2 - pad, by = labelCY - 12, bw = tw + pad*2, bh = 20, br = 4;
+
+        // Box background
+        ctx.fillStyle = 'rgba(255,59,48,.14)';
+        ctx.strokeStyle = 'rgba(255,59,48,.6)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(bx+br, by); ctx.lineTo(bx+bw-br, by);
+        ctx.quadraticCurveTo(bx+bw, by, bx+bw, by+br);
+        ctx.lineTo(bx+bw, by+bh-br);
+        ctx.quadraticCurveTo(bx+bw, by+bh, bx+bw-br, by+bh);
+        ctx.lineTo(bx+br, by+bh);
+        ctx.quadraticCurveTo(bx, by+bh, bx, by+bh-br);
+        ctx.lineTo(bx, by+br);
+        ctx.quadraticCurveTo(bx, by, bx+br, by);
+        ctx.closePath();
+        ctx.fill(); ctx.stroke();
+
+        // Text
+        ctx.fillStyle = '#FF3B30';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.fillText(labelText, labelCX, labelCY - 2);
+
+        ctx.restore();
+      }
+    };
+
+    new Chart(document.getElementById('chartMarketCap'), {
+      type:'line',
+      data:{ labels:YEARS.map(String), datasets },
+      options:{
+        responsive:true, maintainAspectRatio:true, aspectRatio:1.4,
+        plugins:{ legend:{display:false}, tooltip:{...baseTooltip, callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.parsed.y}B`}} },
+        scales:{
+          x:{ grid:baseGridOpts, ticks:baseTick, border:{display:false} },
+          y:{ grid:baseGridOpts, ticks:{...baseTick, callback:v=>'$'+v+'B'}, border:{display:false} }
+        }
+      },
+      plugins: [crisisArrowPlugin]
+    });
+
+    makeLegend('legendMarketCap', [
+      {label:'Apple',   color:COLORS.Apple.line},
+      {label:'诺基亚',  color:COLORS.Nokia.line},
+      {label:'Samsung', color:COLORS.Samsung.line},
+    ]);
+  })();
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 3. Sales Revenue – Grouped Bar
+  // ─────────────────────────────────────────────────────────────────────
+  (function() {
+    const samsungRev = YEARS.map(y => {
+      const t = salesRevenueData.androidTop3[y];
+      return (t && t.Samsung) ? t.Samsung : 0;
+    });
+
+    const datasets = [
+      {
+        label:'Apple',
+        data: YEARS.map(y => salesRevenueData.Apple[y]),
+        backgroundColor: COLORS.Apple.fill, borderColor: COLORS.Apple.line, borderWidth:1, borderRadius:3,
+      },
+      {
+        label:'诺基亚',
+        data: YEARS.map(y => salesRevenueData.Nokia[y]),
+        backgroundColor: COLORS.Nokia.fill, borderColor: COLORS.Nokia.line, borderWidth:1, borderRadius:3,
+      },
+      {
+        label:'Samsung',
+        data: samsungRev,
+        backgroundColor: COLORS.Samsung.fill, borderColor: COLORS.Samsung.line, borderWidth:1, borderRadius:3,
+      },
+    ];
+
+    new Chart(document.getElementById('chartSalesRevenue'), {
+      type:'bar',
+      data:{ labels:YEARS.map(String), datasets },
+      options:{
+        responsive:true, maintainAspectRatio:true, aspectRatio:1.4,
+        plugins:{ legend:{display:false}, tooltip:{...baseTooltip, callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.parsed.y}B`}} },
+        scales:{
+          x:{ grid:baseGridOpts, ticks:baseTick, border:{display:false} },
+          y:{ grid:baseGridOpts, ticks:{...baseTick, callback:v=>'$'+v+'B'}, border:{display:false} }
+        }
+      }
+    });
+
+    makeLegend('legendSalesRevenue', [
+      {label:'Apple',   color:COLORS.Apple.fill},
+      {label:'诺基亚',  color:COLORS.Nokia.fill},
+      {label:'Samsung', color:COLORS.Samsung.fill},
+    ]);
+  })();
+
+  // ─────────────────────────────────────────────────────────────────────
+  // 4. Sales Volume – Grouped Bar
+  // ─────────────────────────────────────────────────────────────────────
+  (function() {
+    const samsungVol = YEARS.map(y => {
+      const t = salesVolumeData.androidTop3[y];
+      return (t && t.Samsung) ? t.Samsung : 0;
+    });
+
+    const datasets = [
+      {
+        label:'Apple',
+        data: YEARS.map(y => salesVolumeData.Apple[y]),
+        backgroundColor: COLORS.Apple.fill, borderColor: COLORS.Apple.line, borderWidth:1, borderRadius:3,
+      },
+      {
+        label:'诺基亚',
+        data: YEARS.map(y => salesVolumeData.Nokia[y]),
+        backgroundColor: COLORS.Nokia.fill, borderColor: COLORS.Nokia.line, borderWidth:1, borderRadius:3,
+      },
+      {
+        label:'Samsung',
+        data: samsungVol,
+        backgroundColor: COLORS.Samsung.fill, borderColor: COLORS.Samsung.line, borderWidth:1, borderRadius:3,
+      },
+    ];
+
+    new Chart(document.getElementById('chartSalesVolume'), {
+      type:'bar',
+      data:{ labels:YEARS.map(String), datasets },
+      options:{
+        responsive:true, maintainAspectRatio:true, aspectRatio:1.4,
+        plugins:{ legend:{display:false}, tooltip:{...baseTooltip, callbacks:{label:ctx=>`${ctx.dataset.label}: ${ctx.parsed.y}M`}} },
+        scales:{
+          x:{ grid:baseGridOpts, ticks:baseTick, border:{display:false} },
+          y:{ grid:baseGridOpts, ticks:{...baseTick, callback:v=>v+'M'}, border:{display:false} }
+        }
+      }
+    });
+
+    makeLegend('legendSalesVolume', [
+      {label:'Apple',   color:COLORS.Apple.fill},
+      {label:'诺基亚',  color:COLORS.Nokia.fill},
+      {label:'Samsung', color:COLORS.Samsung.fill},
+    ]);
+  })();
+})();
+</script>
+
 <div class="crisis rev">
   <span class="sec-label">诺基亚CEO斯蒂芬·埃洛普 · 2013年收购发布会</span>
   <p class="crisis-q">"我们没做错什么，<br>但不知怎么的，我们输了。"</p>
