@@ -1327,7 +1327,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   <div class="sec-head rev" style="padding-top:0;">
     <span class="sec-label">复盘推演</span>
     <h2 class="sec-title">如果重来，诺基亚应该怎么做？</h2>
-    <p class="sec-desc">回顾四次错过的翻盘机会，逐一拆解最优决策路径与风险评估</p>
+    <p class="sec-desc">回顾四次错过的翻盘机会，逐一拆解基于关键节点的局部最优决策路径与风险评估</p>
   </div>
   <div style="max-width:1100px;margin:0 auto;display:flex;flex-direction:column;gap:28px;">
 
@@ -1417,6 +1417,159 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   </div>
 </section>
 <!-- END REPLAY SECTION -->
+
+<!-- DECISION RANK SECTION -->
+<style>
+.rank-sec { padding: 100px 40px; background: var(--mid); position: relative; overflow: hidden; }
+.rank-sec::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(0,90,255,.07) 0%, transparent 70%); pointer-events: none; }
+.rank-cards { max-width: 1100px; margin: 0 auto 64px; display: flex; flex-direction: column; gap: 22px; }
+.rank-card { background: var(--card); border-radius: 16px; padding: 36px 44px 36px 60px; position: relative; overflow: hidden; transition: background .35s; }
+.rank-card:hover { background: rgba(0,90,255,.07); }
+.rank-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 0; transition: height .45s; border-radius: 4px 0 0 4px; }
+.rank-card:hover::before { height: 100%; }
+.rank-card.rank-1::before { background: var(--gold); }
+.rank-card.rank-2::before { background: var(--accent); }
+.rank-card.rank-3::before { background: var(--gray); }
+.rank-card.rank-4::before { background: var(--red); }
+.rank-badge { position: absolute; top: 18px; left: 16px; font-family: 'Playfair Display', serif; font-size: 1.0rem; font-weight: 700; line-height: 1; }
+.rank-badge.gold { color: var(--gold); }
+.rank-badge.blue { color: var(--accent); }
+.rank-badge.gray { color: var(--gray); }
+.rank-badge.red { color: var(--red); }
+.rank-label { font-size: .63rem; letter-spacing: 5px; text-transform: uppercase; margin-bottom: 8px; display: block; }
+.rank-label.gold { color: var(--gold); }
+.rank-label.blue { color: var(--accent); }
+.rank-label.gray { color: var(--gray); }
+.rank-label.red { color: var(--red); }
+.rank-title { font-family: 'Noto Serif SC', serif; font-size: 1.18rem; color: #fff; font-weight: 600; margin-bottom: 12px; }
+.rank-body p { font-size: .875rem; color: var(--gray); line-height: 1.85; }
+.rank-body .rank-sub-list { margin-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+.rank-body .rank-sub-item { display: flex; align-items: flex-start; gap: 10px; font-size: .85rem; color: rgba(226,226,238,.72); line-height: 1.75; }
+.rank-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; margin-top: 7px; }
+.rank-dot.gold { background: var(--gold); }
+.rank-dot.blue { background: var(--accent); }
+.rank-dot.gray { background: var(--gray); }
+.rank-dot.red { background: var(--red); }
+
+/* Decision Table */
+.decision-table-wrap { max-width: 1100px; margin: 0 auto; overflow-x: auto; -webkit-overflow-scrolling: touch; border-radius: 14px; border: 1px solid rgba(0,90,255,.18); }
+.decision-table { width: 100%; border-collapse: collapse; font-size: .86rem; min-width: 640px; }
+.decision-table thead tr { background: rgba(0,90,255,.14); border-bottom: 2px solid rgba(0,212,255,.28); }
+.decision-table th { padding: 16px 20px; text-align: left; font-size: .64rem; letter-spacing: 4px; text-transform: uppercase; color: var(--accent); font-weight: 600; }
+.decision-table tbody tr { border-bottom: 1px solid rgba(0,90,255,.09); transition: background .25s; }
+.decision-table tbody tr:hover { background: rgba(0,90,255,.06); }
+.decision-table tbody tr:last-child { border-bottom: none; }
+.decision-table td { padding: 18px 20px; color: var(--gray); line-height: 1.65; vertical-align: top; }
+.decision-table td:first-child { color: rgba(226,226,238,.9); font-weight: 600; font-family: 'Playfair Display', serif; font-size: .95rem; white-space: nowrap; }
+.dt-real { color: rgba(255,59,48,.85) !important; }
+.dt-optimal { color: rgba(0,212,255,.85) !important; }
+.dt-gap { color: rgba(255,214,10,.82) !important; font-size: .82rem !important; }
+.rank-table-label { max-width: 1100px; margin: 0 auto 18px; display: flex; align-items: center; gap: 14px; }
+.rank-table-label span { font-size: .63rem; letter-spacing: 5px; text-transform: uppercase; color: var(--accent); }
+.rank-table-label::after { content: ''; flex: 1; height: 1px; background: rgba(0,212,255,.2); }
+
+@media (max-width: 768px) {
+  .rank-sec { padding: 64px 18px; }
+  .rank-card { padding: 28px 20px 28px 48px; }
+  .rank-title { font-size: 1.02rem; }
+  .decision-table-wrap { border-radius: 10px; }
+  .decision-table th, .decision-table td { padding: 14px 14px; }
+}
+@media (max-width: 480px) {
+  .rank-card { padding: 24px 16px 24px 42px; }
+  .rank-badge { font-size: .85rem; left: 12px; }
+}
+</style>
+
+<section class="rank-sec" id="decision-rank">
+  <div class="sec-head rev" style="position:relative;padding-top:0;">
+    <span class="sec-label">多维复盘 · 概率推演</span>
+    <h2 class="sec-title">如果重来——四条路径，四种命运</h2>
+    <p class="sec-desc">引入蒙特卡洛模拟 · 从全局最优解到历史真实走向，逐一拆解每条路径的胜负逻辑与命运推演</p>
+  </div>
+
+  <div class="rank-cards">
+
+    <!-- Rank 1 -->
+    <div class="rank-card rank-1 rev">
+      <div class="rank-badge gold">①</div>
+      <span class="rank-label gold">最优解 · 概率最高能保住前三，甚至挑战三星</span>
+      <h3 class="rank-title">2008–2009 年果断 All in Android + 保留 Here 地图差异化</h3>
+      <div class="rank-body">
+        <p>2008年Android刚开源，诺基亚体量巨大，完全可以成为Android阵营的"三星之前的三星"。</p>
+        <div class="rank-sub-list">
+          <div class="rank-sub-item"><div class="rank-dot gold"></div><span>凭借自家硬件工业设计、供应链、渠道、品牌及拍照/耐用口碑，早期就能压制HTC、三星等后来者。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot gold"></div><span>保留Here地图作为杀手级差异化产品（类似三星后来保留自主研发产品），而不是被Google Maps完全压制。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot gold"></div><span>结果推演：很可能保住全球30–40%份额，活成今天类似"三星+华为"的混合体，而不是被肢解卖身。模拟结果与很多业内复盘结果保持一致，都认为这是唯一真正可能逆转命运的窗口。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 2 -->
+    <div class="rank-card rank-2 rev" style="transition-delay:.07s;">
+      <div class="rank-badge blue">②</div>
+      <span class="rank-label blue">次优选择 · 仍远好于历史</span>
+      <h3 class="rank-title">全力把 MeeGo 做成第三极（2010–2012 年窗口）</h3>
+      <div class="rank-body">
+        <p>MeeGo（Maemo + Moblin）是当时唯一真正有潜力同时对抗iOS和Android的第三条路。N9（2011年）的系统体验、滑动交互以及工业设计放到二十多年后的今天评价依然非常优秀。</p>
+        <div class="rank-sub-list">
+          <div class="rank-sub-item"><div class="rank-dot blue"></div><span>2010年逐步砍掉Symbian残血项目，把资源、人才、营销全部砸到MeeGo，同时用低端Asha系列继续收割功能机现金流。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot blue"></div><span>有可能形成iOS + Android + MeeGo三足鼎立的格局。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot blue"></div><span>问题：需要极高的执行力和壮士断腕决心（当时内部还在幻想Symbian^3 / Belle能翻盘）。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 3 -->
+    <div class="rank-card rank-3 rev" style="transition-delay:.14s;">
+      <div class="rank-badge gray">③</div>
+      <span class="rank-label gray">比真实历史稍好 · 但已晚了</span>
+      <h3 class="rank-title">2010 年底选 Android 而非 WP</h3>
+      <div class="rank-body">
+        <p>2010年底Android已经很强势，三星Galaxy S开始爆发。诺基亚再进场也很难再做老大，但至少能保住中高端很大份额，不至于像WP那样生态直接崩盘。</p>
+        <div class="rank-sub-list">
+          <div class="rank-sub-item"><div class="rank-dot gray"></div><span>真实历史里WP从一开始就几乎没有第三方开发者愿意认真适配，导致Lumia再漂亮也卖不动。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot gray"></div><span>选Android即便是跟随者，也好过与WP一起陷入死循环。</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rank 4 -->
+    <div class="rank-card rank-4 rev" style="transition-delay:.21s;">
+      <div class="rank-badge red">④</div>
+      <span class="rank-label red">真实历史走的路 · 几乎最差的选项之一</span>
+      <h3 class="rank-title">2011 年 2 月宣布 All in Windows Phone</h3>
+      <div class="rank-body">
+        <p>此时Android已成事实标准，iOS高端稳固，WP几乎从零开始建生态。</p>
+        <div class="rank-sub-list">
+          <div class="rank-sub-item"><div class="rank-dot red"></div><span>开发者不来 → 应用少 → 用户不买 → 开发者更不来，死循环。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot red"></div><span>硬件再强（Lumia 920/1020拍照确实吊打同时代）也救不回来。</span></div>
+          <div class="rank-sub-item"><div class="rank-dot red"></div><span>最终结果：2013年以远低于预期的价格卖给微软，手机业务基本归零。</span></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CSV Table -->
+  <div class="rank-table-label rev" style="transition-delay:.28s;"><span>关键节点对比</span></div>
+  <div class="decision-table-wrap rev" style="transition-delay:.32s;">
+    <table class="decision-table">
+      <thead>
+        <tr>
+          <th>时间点</th>
+          <th>历史真实路径</th>
+          <th>最优复盘路径</th>
+          <th>推演结果</th>
+        </tr>
+      </thead>
+      <tbody id="decision-tbody">
+        <!-- Populated by decision_table.js -->
+      </tbody>
+    </table>
+  </div>
+</section>
+<!-- END DECISION RANK SECTION -->
 
 <!-- LESSONS -->
 <section class="lesson-sec" id="lessons">
@@ -1555,6 +1708,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </footer>
 
 <script src="./JavaScript/team.js"></script>
+<script src="./JavaScript/decision_table.js"></script>
 <script>
 const pts=document.getElementById('pts');
 pts.style.cssText='position:absolute;inset:0;pointer-events:none;overflow:hidden;';
