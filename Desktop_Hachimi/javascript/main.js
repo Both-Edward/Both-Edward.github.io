@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════
-   Desktop Hachimi — main.js
+   Cutepetit — main.js
    • Star field
    • Scroll reveal
    • GitHub latest release
@@ -44,7 +44,7 @@ const LANG_BUNDLES = {
     "nav_install": "Installation",
     "nav_download": "Download",
     "hero_badge": "Desktop Pet Application",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "Your cutest anime companion on the desktop 🍯",
     "hero_desc": "Bring an adorable anime character to life on your desktop!<br>Animated Pet · Mouse Follow · Built-in Music Player · Highly Customizable",
     "hero_dl_btn": "Download Now",
@@ -53,7 +53,7 @@ const LANG_BUNDLES = {
     "divider": "",
     "feat_tag": "✨ Features",
     "feat_title": "Your desktop, more delightful with it",
-    "feat_lead": "Desktop Hachimi brings cute anime characters to your desktop, keeping you company while you work, study, or just relax.",
+    "feat_lead": "Cutepetit brings cute anime characters to your desktop, keeping you company while you work, study, or just relax.",
     "feat_1_name": "Animated Pet Sprite",
     "feat_1_desc": "Supports multi-frame GIF animations. Your pet walks and idles on screen — full of life.",
     "feat_2_name": "Mouse Follow Mode",
@@ -76,7 +76,7 @@ const LANG_BUNDLES = {
     "install_title": "Get started in a few steps",
     "install_lead": "No complex setup required — just download and run.",
     "step_1_title": "Download the latest Release",
-    "step_1_desc": "Head to <a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> and download the latest installer or executable.",
+    "step_1_desc": "Head to <a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> and download the latest installer or executable.",
     "step_2_title": "Extract / Run",
     "step_2_desc": "Windows users: double-click the <code>.exe</code> file. If you downloaded an archive, extract it first.",
     "step_3_title": "Configure via Tray Menu",
@@ -102,7 +102,7 @@ const LANG_BUNDLES = {
     "nav_install": "安装指南",
     "nav_download": "立即下载",
     "hero_badge": "桌面宠物应用 · Desktop Pet",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "はちみーをなめると〜 🍯",
     "hero_desc": "在桌面上养一只属于你的二次元小可爱！<br>动态宠物 · 跟随鼠标 · 内置音乐播放器 · 高度自定义",
     "hero_dl_btn": "立即下载",
@@ -110,7 +110,7 @@ const LANG_BUNDLES = {
     "hero_version_loading": "正在获取最新版本…",
     "feat_tag": "✨ 功能特性",
     "feat_title": "你的桌面，有它更有趣",
-    "feat_lead": "Desktop Hachimi 让可爱的二次元角色住进你的电脑桌面，伴你工作、学习、摸鱼。",
+    "feat_lead": "Cutepetit 让可爱的二次元角色住进你的电脑桌面，伴你工作、学习、摸鱼。",
     "feat_1_name": "动态宠物精灵",
     "feat_1_desc": "支持多帧 GIF 动画，宠物会自动在屏幕上漫步、待机，栩栩如生。",
     "feat_2_name": "鼠标跟随模式",
@@ -133,7 +133,7 @@ const LANG_BUNDLES = {
     "install_title": "几步即可开始",
     "install_lead": "无需复杂配置，下载即用。",
     "step_1_title": "下载最新 Release",
-    "step_1_desc": "前往 <a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 页面，下载最新版本的安装包或可执行文件。",
+    "step_1_desc": "前往 <a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 页面，下载最新版本的安装包或可执行文件。",
     "step_2_title": "解压 / 运行",
     "step_2_desc": "Windows 用户直接双击 <code>.exe</code> 文件运行；如下载压缩包，先解压再启动主程序。",
     "step_3_title": "右键托盘菜单配置",
@@ -159,7 +159,7 @@ const LANG_BUNDLES = {
     "nav_install": "安裝指南",
     "nav_download": "立即下載",
     "hero_badge": "桌面寵物應用 · Desktop Pet",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "はちみーをなめると〜 🍯",
     "hero_desc": "在桌面上養一隻屬於你的二次元小可愛！<br>動態寵物 · 跟隨滑鼠 · 內建音樂播放器 · 高度自訂",
     "hero_dl_btn": "立即下載",
@@ -167,7 +167,7 @@ const LANG_BUNDLES = {
     "hero_version_loading": "正在取得最新版本…",
     "feat_tag": "✨ 功能特色",
     "feat_title": "你的桌面，有它更有趣",
-    "feat_lead": "Desktop Hachimi 讓可愛的二次元角色住進你的電腦桌面，陪你工作、學習、放鬆。",
+    "feat_lead": "Cutepetit 讓可愛的二次元角色住進你的電腦桌面，陪你工作、學習、放鬆。",
     "feat_1_name": "動態寵物精靈",
     "feat_1_desc": "支援多幀 GIF 動畫，寵物會自動在螢幕上漫步、待機，栩栩如生。",
     "feat_2_name": "滑鼠跟隨模式",
@@ -190,7 +190,7 @@ const LANG_BUNDLES = {
     "install_title": "幾步即可開始",
     "install_lead": "無需複雜設定，下載即用。",
     "step_1_title": "下載最新 Release",
-    "step_1_desc": "前往 <a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 頁面，下載最新版本的安裝包或可執行檔。",
+    "step_1_desc": "前往 <a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 頁面，下載最新版本的安裝包或可執行檔。",
     "step_2_title": "解壓縮 / 執行",
     "step_2_desc": "Windows 使用者直接雙擊 <code>.exe</code> 檔案執行；如下載壓縮包，先解壓縮再啟動主程式。",
     "step_3_title": "右鍵系統匣選單設定",
@@ -216,7 +216,7 @@ const LANG_BUNDLES = {
     "nav_install": "インストール",
     "nav_download": "ダウンロード",
     "hero_badge": "デスクトップペットアプリ",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "はちみーをなめると〜 🍯",
     "hero_desc": "あなたのデスクトップに、可愛いアニメキャラクターを！<br>動くペット · マウス追従 · 音楽プレイヤー内蔵 · 自由にカスタマイズ",
     "hero_dl_btn": "ダウンロード",
@@ -224,7 +224,7 @@ const LANG_BUNDLES = {
     "hero_version_loading": "最新バージョンを取得中…",
     "feat_tag": "✨ 機能紹介",
     "feat_title": "デスクトップが、もっと楽しくなる",
-    "feat_lead": "Desktop Hachimi は、可愛いアニメキャラクターをあなたのデスクトップに住まわせます。作業中も、勉強中も、いつもそばに。",
+    "feat_lead": "Cutepetit は、可愛いアニメキャラクターをあなたのデスクトップに住まわせます。作業中も、勉強中も、いつもそばに。",
     "feat_1_name": "アニメーションペット",
     "feat_1_desc": "マルチフレームGIFアニメーション対応。ペットが画面上を歩き回ったり待機したりと、生き生きと動きます。",
     "feat_2_name": "マウス追従モード",
@@ -247,7 +247,7 @@ const LANG_BUNDLES = {
     "install_title": "数ステップで始められます",
     "install_lead": "複雑な設定は不要。ダウンロードしてすぐ使えます。",
     "step_1_title": "最新リリースをダウンロード",
-    "step_1_desc": "<a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> ページから最新バージョンのインストーラーまたは実行ファイルをダウンロードしてください。",
+    "step_1_desc": "<a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> ページから最新バージョンのインストーラーまたは実行ファイルをダウンロードしてください。",
     "step_2_title": "展開 / 実行",
     "step_2_desc": "Windowsユーザーは <code>.exe</code> ファイルをダブルクリック。アーカイブの場合は展開してから起動してください。",
     "step_3_title": "トレイメニューで設定",
@@ -273,7 +273,7 @@ const LANG_BUNDLES = {
     "nav_install": "Installation",
     "nav_download": "Télécharger",
     "hero_badge": "Application Mascotte de Bureau",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "Votre compagnon animé sur le bureau 🍯",
     "hero_desc": "Adoptez un adorable personnage animé sur votre bureau !<br>Mascotte animée · Suivi souris · Lecteur musical intégré · Hautement personnalisable",
     "hero_dl_btn": "Télécharger",
@@ -281,7 +281,7 @@ const LANG_BUNDLES = {
     "hero_version_loading": "Récupération de la dernière version…",
     "feat_tag": "✨ Fonctionnalités",
     "feat_title": "Votre bureau, encore plus agréable",
-    "feat_lead": "Desktop Hachimi fait vivre des personnages anime sur votre bureau pour vous accompagner au travail, en études ou simplement pour vous détendre.",
+    "feat_lead": "Cutepetit fait vivre des personnages anime sur votre bureau pour vous accompagner au travail, en études ou simplement pour vous détendre.",
     "feat_1_name": "Mascotte animée",
     "feat_1_desc": "Supporte les animations GIF multi-images. Votre mascotte se promène et attend sur l'écran.",
     "feat_2_name": "Mode suivi de souris",
@@ -304,7 +304,7 @@ const LANG_BUNDLES = {
     "install_title": "Prêt en quelques étapes",
     "install_lead": "Aucune configuration complexe — téléchargez et lancez.",
     "step_1_title": "Télécharger le dernier Release",
-    "step_1_desc": "Rendez-vous sur <a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> et téléchargez le dernier installateur ou exécutable.",
+    "step_1_desc": "Rendez-vous sur <a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> et téléchargez le dernier installateur ou exécutable.",
     "step_2_title": "Extraire / Lancer",
     "step_2_desc": "Sous Windows, double-cliquez sur le fichier <code>.exe</code>. Si c'est une archive, extrayez-la d'abord.",
     "step_3_title": "Configurer via le menu barre des tâches",
@@ -330,7 +330,7 @@ const LANG_BUNDLES = {
     "nav_install": "설치 가이드",
     "nav_download": "다운로드",
     "hero_badge": "데스크톱 펫 애플리케이션",
-    "hero_title": "Desktop Hachimi",
+    "hero_title": "Cutepetit",
     "hero_subtitle": "당신의 귀여운 애니메이션 동반자 🍯",
     "hero_desc": "나만의 애니메이션 캐릭터를 데스크톱에서 키워보세요!<br>움직이는 펫 · 마우스 추적 · 내장 음악 플레이어 · 자유로운 커스터마이징",
     "hero_dl_btn": "지금 다운로드",
@@ -338,7 +338,7 @@ const LANG_BUNDLES = {
     "hero_version_loading": "최신 버전을 가져오는 중…",
     "feat_tag": "✨ 기능 소개",
     "feat_title": "데스크톱이 더욱 즐거워집니다",
-    "feat_lead": "Desktop Hachimi는 귀여운 애니메이션 캐릭터를 당신의 데스크톱에 살게 합니다. 작업 중에도, 공부 중에도 항상 곁에.",
+    "feat_lead": "Cutepetit는 귀여운 애니메이션 캐릭터를 당신의 데스크톱에 살게 합니다. 작업 중에도, 공부 중에도 항상 곁에.",
     "feat_1_name": "애니메이션 펫 스프라이트",
     "feat_1_desc": "다중 프레임 GIF 애니메이션을 지원합니다. 펫이 화면에서 걸어 다니고 대기하며 생생하게 움직입니다.",
     "feat_2_name": "마우스 추적 모드",
@@ -361,7 +361,7 @@ const LANG_BUNDLES = {
     "install_title": "몇 단계로 시작하세요",
     "install_lead": "복잡한 설정 없이 다운로드하고 바로 실행하세요.",
     "step_1_title": "최신 릴리즈 다운로드",
-    "step_1_desc": "<a href=\"https://github.com/Edward-EH-Holmes/Desktop-Hachimi/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 페이지에서 최신 버전의 설치 파일 또는 실행 파일을 다운로드하세요.",
+    "step_1_desc": "<a href=\"https://github.com/Both-Edward/Cutepetit/releases/latest\" target=\"_blank\" rel=\"noopener\">GitHub Releases</a> 페이지에서 최신 버전의 설치 파일 또는 실행 파일을 다운로드하세요.",
     "step_2_title": "압축 해제 / 실행",
     "step_2_desc": "Windows 사용자는 <code>.exe</code> 파일을 더블 클릭하여 실행하세요. 압축 파일이라면 먼저 압축을 해제하세요.",
     "step_3_title": "트레이 메뉴로 설정",
@@ -415,7 +415,7 @@ function applyTranslations(t) {
   if (dlvi && t.dl_version_loading) dlvi.textContent = t.dl_version_loading;
 
   /* Page title */
-  document.title = `Desktop Hachimi — ${t.hero_badge || 'Desktop Pet'}`;
+  document.title = `Cutepetit — ${t.hero_badge || 'Desktop Pet'}`;
 
   /* Store for GitHub version display */
   window._currentLang = t;
@@ -451,7 +451,7 @@ function applyReleaseData(data, t) {
 }
 
 /* ── 6. Fetch GitHub latest release ── */
-const REPO = 'Edward-EH-Holmes/Desktop-Hachimi';
+const REPO = 'Both-Edward/Cutepetit';
 (async function fetchLatestRelease() {
   try {
     const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
