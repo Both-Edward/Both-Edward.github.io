@@ -361,6 +361,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   .era-inner,.era-inner.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .fail-grid,.cmp-grid,.qa-grid{grid-template-columns:1fr}
+  #charts > div:last-child{padding:0 24px!important}
   .chance-grid{grid-template-columns:repeat(2,1fr)}
   .counter-grid{grid-template-columns:1fr}
   .lesson-sec,.crisis,.qa-sec{padding:80px 24px}
@@ -776,15 +777,16 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
 </section>
 
 <!-- ===== DATA CHARTS SECTION ===== -->
-<section id="charts" style="padding:80px 60px;position:relative;overflow:hidden;">
+<section id="charts" style="padding:80px 0;position:relative;overflow:hidden;">
   <div style="position:absolute;inset:0;background:radial-gradient(ellipse 70% 50% at 50% 0%,rgba(0,90,255,.07) 0%,transparent 70%);pointer-events:none;"></div>
-  <div class="sec-head rev" style="padding:0 0 60px;">
+  <div class="sec-head rev" style="padding:0 60px 60px;">
     <span class="sec-label">数据可视化</span>
     <h2 class="sec-title">帝国的数字轨迹</h2>
     <p class="sec-desc">2007–2013年，从市场份额、市值、营收到出货量，四个维度还原诺基亚的崩塌全过程</p>
   </div>
 
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+  <div style="padding:0 60px;">
+  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;width:100%;box-sizing:border-box;">
 
     <!-- Chart 1: Market Share Stacked 100% Bar -->
     <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;">
@@ -838,6 +840,7 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
       </div>
     </div>
 
+  </div>
   </div>
 </section>
 <!-- ===== END DATA CHARTS SECTION ===== -->
