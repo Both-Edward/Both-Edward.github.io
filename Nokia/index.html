@@ -8,6 +8,43 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="./CSS/fonts.css" rel="stylesheet">
 <style>
+/* ===== CHARTS GRID =====  */
+.charts-grid-wrap {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+.charts-grid {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+.chart-card {
+  background: rgba(0,90,255,.05);
+  border: 1px solid rgba(0,90,255,.2);
+  border-radius: 16px;
+  padding: 32px;
+  box-sizing: border-box;
+  min-width: 0;
+}
+.chart-card-header { margin-bottom: 20px; }
+.chart-label { font-size:.62rem; letter-spacing:4px; text-transform:uppercase; color:var(--accent); margin-bottom:6px; }
+.chart-title { font-family:"Noto Serif SC",serif; font-size:1.1rem; color:#fff; font-weight:600; }
+.chart-sub { font-size:.76rem; color:var(--gray); margin-top:4px; }
+.chart-body { display:flex; gap:24px; align-items:flex-start; }
+.chart-canvas-wrap { flex:1; min-width:0; }
+.chart-canvas-wrap canvas { width:100% !important; }
+.chart-legend { flex-shrink:0; display:flex; flex-direction:column; gap:8px; padding-top:4px; }
+@media(max-width:960px){
+  .charts-grid-wrap{padding:0 24px}
+  .charts-grid{grid-template-columns:1fr}
+}
+/* ===== END CHARTS GRID ===== */
+
 /* ===== THANK YOU SECTION ===== */
 .thankyou-sec {
   padding: 100px 60px;
@@ -361,7 +398,6 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
   .era-inner,.era-inner.rev{grid-template-columns:1fr;direction:ltr;gap:40px}
   .stats-bar{grid-template-columns:repeat(2,1fr)}
   .fail-grid,.cmp-grid,.qa-grid{grid-template-columns:1fr}
-  #charts > div:last-child{padding:0 24px!important}
   .chance-grid{grid-template-columns:repeat(2,1fr)}
   .counter-grid{grid-template-columns:1fr}
   .lesson-sec,.crisis,.qa-sec{padding:80px 24px}
@@ -785,62 +821,62 @@ footer { padding: 48px 60px; border-top: 1px solid rgba(0,90,255,.15); backgroun
     <p class="sec-desc">2007–2013年，从市场份额、市值、营收到出货量，四个维度还原诺基亚的崩塌全过程</p>
   </div>
 
-  <div style="padding:0 60px;">
-  <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:32px;width:100%;box-sizing:border-box;">
+  <div class="charts-grid-wrap">
+    <div class="charts-grid">
 
-    <!-- Chart 1: Market Share Stacked 100% Bar -->
-    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;">
-      <div style="margin-bottom:20px;">
-        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">市场份额</div>
-        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">智能手机市场占有率</div>
-        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">100% 堆叠柱状图（%）</div>
+      <!-- Chart 1 -->
+      <div class="rev chart-card">
+        <div class="chart-card-header">
+          <div class="chart-label">市场份额</div>
+          <div class="chart-title">智能手机市场占有率</div>
+          <div class="chart-sub">100% 堆叠柱状图（%）</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-canvas-wrap"><canvas id="chartMarketShare"></canvas></div>
+          <div id="legendMarketShare" class="chart-legend"></div>
+        </div>
       </div>
-      <div style="display:flex;gap:24px;align-items:flex-start;">
-        <div style="flex:1;min-width:0;"><canvas id="chartMarketShare" style="width:100%;"></canvas></div>
-        <div id="legendMarketShare" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
+
+      <!-- Chart 2 -->
+      <div class="rev chart-card" style="transition-delay:.08s">
+        <div class="chart-card-header">
+          <div class="chart-label">市值对比</div>
+          <div class="chart-title">市值变化趋势</div>
+          <div class="chart-sub">折线图（十亿美元）</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-canvas-wrap"><canvas id="chartMarketCap"></canvas></div>
+          <div id="legendMarketCap" class="chart-legend"></div>
+        </div>
       </div>
+
+      <!-- Chart 3 -->
+      <div class="rev chart-card" style="transition-delay:.16s">
+        <div class="chart-card-header">
+          <div class="chart-label">手机营收</div>
+          <div class="chart-title">手机业务营业收入</div>
+          <div class="chart-sub">柱形图（十亿美元，约估）</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-canvas-wrap"><canvas id="chartSalesRevenue"></canvas></div>
+          <div id="legendSalesRevenue" class="chart-legend"></div>
+        </div>
+      </div>
+
+      <!-- Chart 4 -->
+      <div class="rev chart-card" style="transition-delay:.24s">
+        <div class="chart-card-header">
+          <div class="chart-label">出货量</div>
+          <div class="chart-title">智能手机出货量</div>
+          <div class="chart-sub">柱形图（百万台）</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-canvas-wrap"><canvas id="chartSalesVolume"></canvas></div>
+          <div id="legendSalesVolume" class="chart-legend"></div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- Chart 2: Market Cap Line -->
-    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.08s">
-      <div style="margin-bottom:20px;">
-        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">市值对比</div>
-        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">市值变化趋势</div>
-        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">折线图（十亿美元）</div>
-      </div>
-      <div style="display:flex;gap:24px;align-items:flex-start;">
-        <div style="flex:1;min-width:0;"><canvas id="chartMarketCap" style="width:100%;"></canvas></div>
-        <div id="legendMarketCap" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
-      </div>
-    </div>
-
-    <!-- Chart 3: Sales Revenue Bar -->
-    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.16s">
-      <div style="margin-bottom:20px;">
-        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">手机营收</div>
-        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">手机业务营业收入</div>
-        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">柱形图（十亿美元，约估）</div>
-      </div>
-      <div style="display:flex;gap:24px;align-items:flex-start;">
-        <div style="flex:1;min-width:0;"><canvas id="chartSalesRevenue" style="width:100%;"></canvas></div>
-        <div id="legendSalesRevenue" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
-      </div>
-    </div>
-
-    <!-- Chart 4: Sales Volume Bar -->
-    <div class="rev" style="background:rgba(0,90,255,.05);border:1px solid rgba(0,90,255,.2);border-radius:16px;padding:32px;transition-delay:.24s">
-      <div style="margin-bottom:20px;">
-        <div style="font-size:.62rem;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:6px;">出货量</div>
-        <div style="font-family:'Noto Serif SC',serif;font-size:1.1rem;color:#fff;font-weight:600;">智能手机出货量</div>
-        <div style="font-size:.76rem;color:var(--gray);margin-top:4px;">柱形图（百万台）</div>
-      </div>
-      <div style="display:flex;gap:24px;align-items:flex-start;">
-        <div style="flex:1;min-width:0;"><canvas id="chartSalesVolume" style="width:100%;"></canvas></div>
-        <div id="legendSalesVolume" style="flex-shrink:0;display:flex;flex-direction:column;gap:8px;padding-top:4px;"></div>
-      </div>
-    </div>
-
-  </div>
   </div>
 </section>
 <!-- ===== END DATA CHARTS SECTION ===== -->
