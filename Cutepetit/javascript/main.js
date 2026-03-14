@@ -397,7 +397,7 @@ const LANG_BUNDLES = {
 const LANGUAGES = [
   { code: 'en',    label: 'English',  flag: '🇬🇧' },
   { code: 'zh-CN', label: '简体中文', flag: '🇨🇳' },
-  { code: 'zh-TW', label: '繁體中文', flag: '🇹🇼' },
+  { code: 'zh-TW', label: '繁體中文', flag: '🇭🇰' },
   { code: 'ja',    label: '日本語',   flag: '🇯🇵' },
   { code: 'fr',    label: 'Français', flag: '🇫🇷' },
   { code: 'ko',    label: '한국어',   flag: '🇰🇷' },
