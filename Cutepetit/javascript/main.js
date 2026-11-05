@@ -470,9 +470,11 @@ function applyReleaseData(data, t) {
 /* ── 6. Fetch GitHub latest release（多级数据源，防 API 限流 + 防墙）──
    按可靠性排序，前一个失败自动尝试下一个：
    ① GitHub 官方 API（匿名每小时 60 次/IP，超限 403；大陆网络还可能直连失败）
-   ② codetabs / allorigins CORS 代理转发官方 API（含完整 assets）
-   ③ jsDelivr 数据 API（不受 GitHub 限流，只有 tag；附件命名规则
+   ② jsDelivr 数据 API（不受 GitHub 限流，只有 tag；附件命名规则
       固定为 Cutepetit-Setup-<ver>.exe，据此拼下载直链）
+      —— 必须排在公共代理之前：代理失联时会长时间挂起，
+      jsDelivr 放后面会把可用源压在死源底下（TypenTeX 已验证此顺序有效）
+   ③ codetabs / allorigins CORS 代理转发官方 API（含完整 assets）
    ④ 同源 version.json（与本页面同域，只要页面能打开就一定能拿到，
       不受限流/墙影响；每次发新 Release 后需手动更新该文件）
    全部失败才回落到 HTML 默认（releases/latest 链接 + 占位文案）。
@@ -505,18 +507,6 @@ const RELEASE_SOURCES = [
     return parseGithubRelease(await res.json());
   },
   async () => {
-    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
-    const res = await fetchWithTimeout(`https://api.codetabs.com/v1/proxy?quest=${target}`);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return parseGithubRelease(await res.json());
-  },
-  async () => {
-    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
-    const res = await fetchWithTimeout(`https://api.allorigins.win/raw?url=${target}`);
-    if (!res.ok) throw new Error('HTTP ' + res.status);
-    return parseGithubRelease(await res.json());
-  },
-  async () => {
     const res = await fetchWithTimeout(`https://data.jsdelivr.com/v1/packages/gh/${REPO}`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const d = await res.json();
@@ -533,6 +523,18 @@ const RELEASE_SOURCES = [
         browser_download_url: `https://github.com/${REPO}/releases/download/${tag}/Cutepetit-Setup-${bare}.exe`
       }]
     };
+  },
+  async () => {
+    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
+    const res = await fetchWithTimeout(`https://api.codetabs.com/v1/proxy?quest=${target}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return parseGithubRelease(await res.json());
+  },
+  async () => {
+    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
+    const res = await fetchWithTimeout(`https://api.allorigins.win/raw?url=${target}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return parseGithubRelease(await res.json());
   },
   async () => {
     /* 同源兜底：与页面同域，无 CORS、无配额、大陆可达。
