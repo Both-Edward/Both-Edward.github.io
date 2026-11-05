@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>第三方组件清单 — TypenTeX</title>
+  <meta name="description" content="TypenTeX 随安装包分发的第三方组件清单与许可证统计（Tectonic 及其 Rust 依赖）。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23d6336c' text-anchor='middle'%3ETt%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html"><span class="tt">Tt</span> TypenTeX <span class="ver">v0.0.1</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">功能</a></li>
+      <li><a href="index.html#quickstart">上手</a></li>
+      <li><a href="index.html#download">下载</a></li>
+      <li><a href="index.html#about">关于</a></li>
+      <li><a href="licenses.html">版权</a></li>
+    </ul>
+    <a class="gh-chip" href="https://github.com/Both-Edward/TypenTeX" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<main class="doc">
+  <a class="back" href="licenses.html">&larr; 返回许可与声明</a>
+  <h1>第三方组件清单</h1>
+  <div class="doc-sub">生成日期：2026-11-05 · 共 360 个 Rust 组件（Tectonic 编译引擎及其依赖）</div>
+
+  <p>TypenTeX 随安装包分发以下第三方组件。各组件的版权与许可条款归其作者所有，本清单用于履行 MIT / BSD / Apache-2.0 等许可证的署名义务。</p>
+  <p>本页只含清单与统计；各组件<strong>许可证原文</strong>见 <a href="third_party_licenses.txt">third_party_licenses.txt</a>（约 500 KB）。Dart / Flutter 依赖的许可证由应用内许可证页面汇总展示，本清单按 Android arm64 目标解析。</p>
+
+  <h2>组件清单</h2>
+  <div class="table-scroll">
+    <table>
+      <thead>
+        <tr><th>组件</th><th>版本</th><th>许可证</th></tr>
+      </thead>
+      <tbody>
+          <tr><td>encoding_rs</td><td>0.8.44</td><td>(Apache-2.0 OR MIT) AND BSD-3-Clause</td></tr>
+          <tr><td>unicode-ident</td><td>1.0.27</td><td>(MIT OR Apache-2.0) AND Unicode-3.0</td></tr>
+          <tr><td>unicode-normalization</td><td>0.1.26</td><td>(MIT OR Apache-2.0) AND Unicode-3.0</td></tr>
+          <tr><td>borsh-derive</td><td>1.8.1</td><td>Apache-2.0</td></tr>
+          <tr><td>ignore-files</td><td>3.0.8</td><td>Apache-2.0</td></tr>
+          <tr><td>miette</td><td>7.6.0</td><td>Apache-2.0</td></tr>
+          <tr><td>miette-derive</td><td>7.6.0</td><td>Apache-2.0</td></tr>
+          <tr><td>project-origins</td><td>1.4.4</td><td>Apache-2.0</td></tr>
+          <tr><td>sync_wrapper</td><td>1.0.2</td><td>Apache-2.0</td></tr>
+          <tr><td>unicode-bom</td><td>2.0.3</td><td>Apache-2.0</td></tr>
+          <tr><td>watchexec</td><td>8.4.4</td><td>Apache-2.0</td></tr>
+          <tr><td>watchexec-filterer-globset</td><td>8.0.6</td><td>Apache-2.0</td></tr>
+          <tr><td>watchexec-filterer-ignore</td><td>7.0.6</td><td>Apache-2.0</td></tr>
+          <tr><td>zopfli</td><td>0.8.4</td><td>Apache-2.0</td></tr>
+          <tr><td>fnv</td><td>1.0.7</td><td>Apache-2.0 / MIT</td></tr>
+          <tr><td>ring</td><td>0.17.14</td><td>Apache-2.0 AND ISC</td></tr>
+          <tr><td>hyper-rustls</td><td>0.27.10</td><td>Apache-2.0 OR ISC OR MIT</td></tr>
+          <tr><td>rustls</td><td>0.23.46</td><td>Apache-2.0 OR ISC OR MIT</td></tr>
+          <tr><td>async-priority-channel</td><td>0.2.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>atomic-waker</td><td>1.1.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>autocfg</td><td>1.5.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>concurrent-queue</td><td>2.5.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>const-oid</td><td>0.10.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>equivalent</td><td>1.0.3</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>event-listener</td><td>4.0.3</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>fastrand</td><td>2.5.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>idna_adapter</td><td>1.2.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>indexmap</td><td>2.14.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>multiversion_no_op</td><td>1.0.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>normalize-path</td><td>0.2.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>parking</td><td>2.2.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>pin-project-lite</td><td>0.2.17</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>process-wrap</td><td>9.1.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>rustc-hash</td><td>2.1.3</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>simd_cesu8</td><td>1.2.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>utf8_iter</td><td>1.1.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>utf8parse</td><td>0.2.2</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>utf_types</td><td>1.0.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>watchexec-events</td><td>6.1.3</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>watchexec-signals</td><td>5.1.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>watchexec-supervisor</td><td>5.4.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>watchexec-supervisor</td><td>6.0.0</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>zeroize</td><td>1.9.1</td><td>Apache-2.0 OR MIT</td></tr>
+          <tr><td>linux-raw-sys</td><td>0.12.1</td><td>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</td></tr>
+          <tr><td>rustix</td><td>1.1.6</td><td>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</td></tr>
+          <tr><td>zerocopy</td><td>0.8.63</td><td>BSD-2-Clause OR Apache-2.0 OR MIT</td></tr>
+          <tr><td>deunicode</td><td>1.6.2</td><td>BSD-3-Clause</td></tr>
+          <tr><td>subtle</td><td>2.6.1</td><td>BSD-3-Clause</td></tr>
+          <tr><td>notify</td><td>8.2.1</td><td>CC0-1.0</td></tr>
+          <tr><td>dunce</td><td>1.0.5</td><td>CC0-1.0 OR MIT-0 OR Apache-2.0</td></tr>
+          <tr><td>inotify</td><td>0.11.5</td><td>ISC</td></tr>
+          <tr><td>inotify-sys</td><td>0.1.8</td><td>ISC</td></tr>
+          <tr><td>rustls-webpki</td><td>0.103.16</td><td>ISC</td></tr>
+          <tr><td>untrusted</td><td>0.9.0</td><td>ISC</td></tr>
+          <tr><td>aws-lc-rs</td><td>1.19.0</td><td>ISC AND (Apache-2.0 OR ISC)</td></tr>
+          <tr><td>aws-lc-sys</td><td>0.47.0</td><td>ISC AND (Apache-2.0 OR ISC) AND Apache-2.0 AND MIT AND BSD-3-Clause AND (Apache-2.0 OR ISC OR MIT) AND (Apache-2.0 OR ISC OR MIT-0)</td></tr>
+          <tr><td>atomic-take</td><td>1.1.0</td><td>MIT</td></tr>
+          <tr><td>byte-unit</td><td>5.2.6</td><td>MIT</td></tr>
+          <tr><td>bytes</td><td>1.12.1</td><td>MIT</td></tr>
+          <tr><td>cfg_aliases</td><td>0.2.2</td><td>MIT</td></tr>
+          <tr><td>combine</td><td>4.6.9</td><td>MIT</td></tr>
+          <tr><td>endian-type</td><td>0.2.0</td><td>MIT</td></tr>
+          <tr><td>faster-hex</td><td>0.10.1</td><td>MIT</td></tr>
+          <tr><td>fs_extra</td><td>1.3.0</td><td>MIT</td></tr>
+          <tr><td>globwalk</td><td>0.9.1</td><td>MIT</td></tr>
+          <tr><td>h2</td><td>0.4.20</td><td>MIT</td></tr>
+          <tr><td>html-escape</td><td>0.2.15</td><td>MIT</td></tr>
+          <tr><td>http-body</td><td>1.1.0</td><td>MIT</td></tr>
+          <tr><td>http-body-util</td><td>0.1.5</td><td>MIT</td></tr>
+          <tr><td>hyper</td><td>1.12.0</td><td>MIT</td></tr>
+          <tr><td>hyper-util</td><td>0.1.21</td><td>MIT</td></tr>
+          <tr><td>is-docker</td><td>0.2.0</td><td>MIT</td></tr>
+          <tr><td>is-wsl</td><td>0.4.0</td><td>MIT</td></tr>
+          <tr><td>libm</td><td>0.2.16</td><td>MIT</td></tr>
+          <tr><td>matchers</td><td>0.2.0</td><td>MIT</td></tr>
+          <tr><td>mio</td><td>1.2.4</td><td>MIT</td></tr>
+          <tr><td>nibble_vec</td><td>0.1.0</td><td>MIT</td></tr>
+          <tr><td>nix</td><td>0.31.3</td><td>MIT</td></tr>
+          <tr><td>nu-ansi-term</td><td>0.50.3</td><td>MIT</td></tr>
+          <tr><td>open</td><td>5.4.5</td><td>MIT</td></tr>
+          <tr><td>parse-zoneinfo</td><td>0.3.1</td><td>MIT</td></tr>
+          <tr><td>phf</td><td>0.11.3</td><td>MIT</td></tr>
+          <tr><td>phf_codegen</td><td>0.11.3</td><td>MIT</td></tr>
+          <tr><td>phf_generator</td><td>0.11.3</td><td>MIT</td></tr>
+          <tr><td>phf_macros</td><td>0.11.3</td><td>MIT</td></tr>
+          <tr><td>phf_shared</td><td>0.11.3</td><td>MIT</td></tr>
+          <tr><td>prodash</td><td>31.0.1</td><td>MIT</td></tr>
+          <tr><td>quick-xml</td><td>0.39.4</td><td>MIT</td></tr>
+          <tr><td>radix_trie</td><td>0.3.0</td><td>MIT</td></tr>
+          <tr><td>rust_decimal</td><td>1.43.0</td><td>MIT</td></tr>
+          <tr><td>schemars</td><td>1.2.3</td><td>MIT</td></tr>
+          <tr><td>sharded-slab</td><td>0.1.7</td><td>MIT</td></tr>
+          <tr><td>simd-adler32</td><td>0.3.10</td><td>MIT</td></tr>
+          <tr><td>slab</td><td>0.4.12</td><td>MIT</td></tr>
+          <tr><td>strsim</td><td>0.11.1</td><td>MIT</td></tr>
+          <tr><td>synstructure</td><td>0.14.0</td><td>MIT</td></tr>
+          <tr><td>tectonic</td><td>0.17.0</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_core</td><td>0.5.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_flate</td><td>0.1.10</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_fontconfig</td><td>0.1.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_freetype2</td><td>0.3.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_graphite2</td><td>0.3.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_harfbuzz</td><td>0.3.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_icu</td><td>0.2.4</td><td>MIT</td></tr>
+          <tr><td>tectonic_bridge_png</td><td>0.1.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_bundles</td><td>0.4.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_cfg_support</td><td>0.1.5</td><td>MIT</td></tr>
+          <tr><td>tectonic_dep_support</td><td>0.1.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_docmodel</td><td>0.3.1</td><td>MIT</td></tr>
+          <tr><td>tectonic_engine_bibtex</td><td>0.3.4</td><td>MIT</td></tr>
+          <tr><td>tectonic_engine_spx2html</td><td>0.4.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_engine_xdvipdfmx</td><td>0.4.4</td><td>MIT</td></tr>
+          <tr><td>tectonic_engine_xetex</td><td>0.5.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_errors</td><td>0.3.0</td><td>MIT</td></tr>
+          <tr><td>tectonic_geturl</td><td>0.4.1</td><td>MIT</td></tr>
+          <tr><td>tectonic_io_base</td><td>0.6.0</td><td>MIT</td></tr>
+          <tr><td>tectonic_pdf_io</td><td>0.5.3</td><td>MIT</td></tr>
+          <tr><td>tectonic_status_base</td><td>0.2.2</td><td>MIT</td></tr>
+          <tr><td>tectonic_xdv</td><td>0.3.0</td><td>MIT</td></tr>
+          <tr><td>tectonic_xetex_layout</td><td>0.3.4</td><td>MIT</td></tr>
+          <tr><td>tera</td><td>1.20.1</td><td>MIT</td></tr>
+          <tr><td>tokio</td><td>1.54.1</td><td>MIT</td></tr>
+          <tr><td>tokio-macros</td><td>2.7.2</td><td>MIT</td></tr>
+          <tr><td>tokio-stream</td><td>0.1.19</td><td>MIT</td></tr>
+          <tr><td>tokio-util</td><td>0.7.20</td><td>MIT</td></tr>
+          <tr><td>tower</td><td>0.5.3</td><td>MIT</td></tr>
+          <tr><td>tower-http</td><td>0.6.11</td><td>MIT</td></tr>
+          <tr><td>tower-layer</td><td>0.3.3</td><td>MIT</td></tr>
+          <tr><td>tower-service</td><td>0.3.3</td><td>MIT</td></tr>
+          <tr><td>tracing</td><td>0.1.44</td><td>MIT</td></tr>
+          <tr><td>tracing-attributes</td><td>0.1.31</td><td>MIT</td></tr>
+          <tr><td>tracing-core</td><td>0.1.36</td><td>MIT</td></tr>
+          <tr><td>tracing-log</td><td>0.2.0</td><td>MIT</td></tr>
+          <tr><td>tracing-subscriber</td><td>0.3.23</td><td>MIT</td></tr>
+          <tr><td>try-lock</td><td>0.2.5</td><td>MIT</td></tr>
+          <tr><td>utf8-width</td><td>0.1.9</td><td>MIT</td></tr>
+          <tr><td>want</td><td>0.3.2</td><td>MIT</td></tr>
+          <tr><td>which</td><td>8.0.6</td><td>MIT</td></tr>
+          <tr><td>winnow</td><td>1.0.4</td><td>MIT</td></tr>
+          <tr><td>zip</td><td>8.6.0</td><td>MIT</td></tr>
+          <tr><td>zmij</td><td>1.0.23</td><td>MIT</td></tr>
+          <tr><td>android_system_properties</td><td>0.1.6</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>anstream</td><td>1.0.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>anstyle</td><td>1.0.14</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>anstyle-parse</td><td>1.0.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>anstyle-query</td><td>1.1.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>anyhow</td><td>1.0.104</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>arrayvec</td><td>0.7.8</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>base64</td><td>0.23.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>bitflags</td><td>2.13.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>block-buffer</td><td>0.12.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>borsh</td><td>1.8.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>bstr</td><td>1.13.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>bumpalo</td><td>3.20.3</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>cc</td><td>1.11.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>cfg-if</td><td>1.0.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>chacha20</td><td>0.10.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>chrono</td><td>0.4.45</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>chrono-tz</td><td>0.9.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>chrono-tz-build</td><td>0.3.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>clap</td><td>4.6.7</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>clap_builder</td><td>4.6.7</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>clap_complete</td><td>4.6.11</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>clap_derive</td><td>4.6.7</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>clap_lex</td><td>1.1.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>cmake</td><td>0.1.58</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>colorchoice</td><td>1.0.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>cpufeatures</td><td>0.3.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>crc32fast</td><td>1.5.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>crossbeam-deque</td><td>0.8.8</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>crossbeam-epoch</td><td>0.9.21</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>crossbeam-utils</td><td>0.8.23</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>crypto-common</td><td>0.2.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>defmt</td><td>0.3.101</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>defmt</td><td>1.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>defmt-macros</td><td>1.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>defmt-parser</td><td>1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>digest</td><td>0.11.3</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>digest-io</td><td>0.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>directories</td><td>6.0.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>dirs-sys</td><td>0.5.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>displaydoc</td><td>0.2.7</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>dyn-clone</td><td>1.0.20</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>enrede</td><td>0.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>errno</td><td>0.3.14</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>find-msvc-tools</td><td>0.1.15</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>flate2</td><td>1.1.10</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>form_urlencoded</td><td>1.2.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-channel</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-core</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-executor</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-io</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-macro</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-sink</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-task</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>futures-util</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>getrandom</td><td>0.2.17</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>getrandom</td><td>0.3.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>getrandom</td><td>0.4.3</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-actor</td><td>0.43.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-config</td><td>0.61.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-config-value</td><td>0.20.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-date</td><td>0.17.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-error</td><td>0.4.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-features</td><td>0.50.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-fs</td><td>0.23.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-glob</td><td>0.28.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-hash</td><td>0.27.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-hashtable</td><td>0.17.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-lock</td><td>25.0.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-object</td><td>0.65.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-path</td><td>0.13.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-ref</td><td>0.68.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-sec</td><td>0.15.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-tempfile</td><td>25.0.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-trace</td><td>0.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-utils</td><td>0.4.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>gix-validate</td><td>0.12.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>hash32</td><td>0.3.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>hashbrown</td><td>0.17.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>heapless</td><td>0.8.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>heck</td><td>0.5.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>http</td><td>1.5.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>httparse</td><td>1.10.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>hybrid-array</td><td>0.4.15</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>iana-time-zone</td><td>0.1.65</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>idna</td><td>1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>ipnet</td><td>2.12.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>is_terminal_polyfill</td><td>1.70.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>itoa</td><td>1.0.18</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>jni</td><td>0.22.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>jni-macros</td><td>0.22.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>jni-sys</td><td>0.4.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>jni-sys-macros</td><td>0.4.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>jobserver</td><td>0.1.35</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>lazy_static</td><td>1.5.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>libc</td><td>0.2.191</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>libz-sys</td><td>1.1.31</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>lock_api</td><td>0.4.14</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>log</td><td>0.4.35</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>md-5</td><td>0.11.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>memmap2</td><td>0.9.12</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>mime</td><td>0.3.17</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>notify-types</td><td>2.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>num-traits</td><td>0.2.19</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>once_cell</td><td>1.21.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>parking_lot</td><td>0.12.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>parking_lot_core</td><td>0.9.12</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>percent-encoding</td><td>2.3.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pest</td><td>2.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pest_derive</td><td>2.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pest_generator</td><td>2.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pest_meta</td><td>2.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pest_stack_guard</td><td>1.0.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pinot</td><td>0.1.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>pkg-config</td><td>0.3.34</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>ppv-lite86</td><td>0.2.21</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>proc-macro-crate</td><td>3.5.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>proc-macro2</td><td>1.0.107</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>quinn</td><td>0.11.12</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>quinn-proto</td><td>0.11.19</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>quinn-udp</td><td>0.5.16</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>quote</td><td>1.0.47</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand</td><td>0.8.8</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand</td><td>0.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand</td><td>0.10.3</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_chacha</td><td>0.3.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_chacha</td><td>0.9.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_core</td><td>0.6.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_core</td><td>0.9.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_core</td><td>0.10.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rand_pcg</td><td>0.10.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>ref-cast</td><td>1.0.27</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>ref-cast-impl</td><td>1.0.27</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>regex</td><td>1.13.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>regex-automata</td><td>0.4.18</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>regex-syntax</td><td>0.8.11</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>reqwest</td><td>0.13.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rustc_version</td><td>0.4.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rustls-pki-types</td><td>1.15.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rustls-platform-verifier</td><td>0.7.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rustls-platform-verifier-android</td><td>0.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>rustversion</td><td>1.0.23</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>scopeguard</td><td>1.2.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>semver</td><td>1.0.28</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>serde</td><td>1.0.229</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>serde_core</td><td>1.0.229</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>serde_derive</td><td>1.0.229</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>serde_json</td><td>1.0.154</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>serde_spanned</td><td>1.1.2</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>sha1dc</td><td>0.1.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>sha2</td><td>0.11.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>shlex</td><td>2.0.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>signal-hook-registry</td><td>1.4.8</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>simdutf8</td><td>0.1.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>siphasher</td><td>1.0.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>smallvec</td><td>1.16.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>socket2</td><td>0.6.5</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>stable_deref_trait</td><td>1.2.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>syn</td><td>2.0.119</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>syn</td><td>3.0.9</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>tar</td><td>0.4.46</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>tempfile</td><td>3.27.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>thiserror</td><td>2.0.21</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>thiserror-impl</td><td>2.0.21</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>thread_local</td><td>1.1.10</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>tokio-rustls</td><td>0.26.6</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>toml</td><td>1.1.8+spec-1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>toml_datetime</td><td>1.1.2+spec-1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>toml_edit</td><td>0.25.18+spec-1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>toml_parser</td><td>1.1.5+spec-1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>toml_writer</td><td>1.1.3+spec-1.1.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>typed-path</td><td>0.12.4</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>typenum</td><td>1.20.1</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>ucd-trie</td><td>0.1.7</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>unicode-segmentation</td><td>1.13.3</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>unicode-width</td><td>0.1.14</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>url</td><td>2.5.8</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>xattr</td><td>1.7.0</td><td>MIT OR Apache-2.0</td></tr>
+          <tr><td>lru-slab</td><td>0.1.3</td><td>MIT OR Apache-2.0 OR Zlib</td></tr>
+          <tr><td>bitflags</td><td>1.3.2</td><td>MIT/Apache-2.0</td></tr>
+          <tr><td>filetime</td><td>0.2.29</td><td>MIT/Apache-2.0</td></tr>
+          <tr><td>humansize</td><td>2.1.3</td><td>MIT/Apache-2.0</td></tr>
+          <tr><td>slug</td><td>0.1.6</td><td>MIT/Apache-2.0</td></tr>
+          <tr><td>vcpkg</td><td>0.2.15</td><td>MIT/Apache-2.0</td></tr>
+          <tr><td>option-ext</td><td>0.2.0</td><td>MPL-2.0</td></tr>
+          <tr><td>icu_collections</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_locale_core</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_normalizer</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_normalizer_data</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_properties</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_properties_data</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>icu_provider</td><td>2.4.0</td><td>Unicode-3.0</td></tr>
+          <tr><td>litemap</td><td>0.8.3</td><td>Unicode-3.0</td></tr>
+          <tr><td>potential_utf</td><td>0.1.6</td><td>Unicode-3.0</td></tr>
+          <tr><td>tinystr</td><td>0.8.5</td><td>Unicode-3.0</td></tr>
+          <tr><td>writeable</td><td>0.6.4</td><td>Unicode-3.0</td></tr>
+          <tr><td>yoke</td><td>0.8.4</td><td>Unicode-3.0</td></tr>
+          <tr><td>yoke-derive</td><td>0.8.4</td><td>Unicode-3.0</td></tr>
+          <tr><td>zerofrom</td><td>0.1.8</td><td>Unicode-3.0</td></tr>
+          <tr><td>zerofrom-derive</td><td>0.1.8</td><td>Unicode-3.0</td></tr>
+          <tr><td>zerotrie</td><td>0.2.5</td><td>Unicode-3.0</td></tr>
+          <tr><td>zerovec</td><td>0.11.9</td><td>Unicode-3.0</td></tr>
+          <tr><td>zerovec-derive</td><td>0.11.7</td><td>Unicode-3.0</td></tr>
+          <tr><td>aho-corasick</td><td>1.1.5</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>byteorder</td><td>1.5.0</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>globset</td><td>0.4.21</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>ignore</td><td>0.4.34</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>jiff</td><td>0.2.39</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>jiff-core</td><td>0.1.2</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>jiff-static</td><td>0.2.39</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>memchr</td><td>2.8.3</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>termcolor</td><td>1.4.1</td><td>Unlicense OR MIT</td></tr>
+          <tr><td>same-file</td><td>1.0.6</td><td>Unlicense/MIT</td></tr>
+          <tr><td>walkdir</td><td>2.5.0</td><td>Unlicense/MIT</td></tr>
+          <tr><td>zlib-rs</td><td>0.6.8</td><td>Zlib</td></tr>
+          <tr><td>bytemuck</td><td>1.25.2</td><td>Zlib OR Apache-2.0 OR MIT</td></tr>
+          <tr><td>bytemuck_derive</td><td>1.12.1</td><td>Zlib OR Apache-2.0 OR MIT</td></tr>
+          <tr><td>tinyvec</td><td>1.13.3</td><td>Zlib OR Apache-2.0 OR MIT</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>按许可证统计</h2>
+  <table class="stats">
+    <thead>
+      <tr><th>许可证</th><th>组件数</th></tr>
+    </thead>
+    <tbody>
+          <tr><td>MIT OR Apache-2.0</td><td>179</td></tr>
+          <tr><td>MIT License</td><td>85</td></tr>
+          <tr><td>Apache-2.0 OR MIT</td><td>25</td></tr>
+          <tr><td>Unicode License v3</td><td>18</td></tr>
+          <tr><td>Apache License 2.0</td><td>11</td></tr>
+          <tr><td>Unlicense OR MIT</td><td>9</td></tr>
+          <tr><td>MIT/Apache-2.0</td><td>5</td></tr>
+          <tr><td>ISC License</td><td>4</td></tr>
+          <tr><td>Zlib OR Apache-2.0 OR MIT</td><td>3</td></tr>
+          <tr><td>(MIT OR Apache-2.0) AND Unicode-3.0</td><td>2</td></tr>
+          <tr><td>Apache-2.0 OR ISC OR MIT</td><td>2</td></tr>
+          <tr><td>Apache-2.0 WITH LLVM-exception OR Apache-2.0 OR MIT</td><td>2</td></tr>
+          <tr><td>BSD 3-Clause License</td><td>2</td></tr>
+          <tr><td>Unlicense/MIT</td><td>2</td></tr>
+          <tr><td>(Apache-2.0 OR MIT) AND BSD-3-Clause</td><td>1</td></tr>
+          <tr><td>Apache-2.0 / MIT</td><td>1</td></tr>
+          <tr><td>Apache-2.0 AND ISC</td><td>1</td></tr>
+          <tr><td>BSD-2-Clause OR Apache-2.0 OR MIT</td><td>1</td></tr>
+          <tr><td>CC0 1.0 Universal</td><td>1</td></tr>
+          <tr><td>CC0-1.0 OR MIT-0 OR Apache-2.0</td><td>1</td></tr>
+          <tr><td>ISC AND (Apache-2.0 OR ISC)</td><td>1</td></tr>
+          <tr><td>ISC AND (Apache-2.0 OR ISC) AND Apache-2.0 AND MIT AND BSD-3-Clause AND (Apache-2.0 OR ISC OR MIT) AND (Apache-2.0 OR ISC OR MIT-0)</td><td>1</td></tr>
+          <tr><td>MIT OR Apache-2.0 OR Zlib</td><td>1</td></tr>
+          <tr><td>Mozilla Public License 2.0</td><td>1</td></tr>
+          <tr><td>zlib License</td><td>1</td></tr>
+    </tbody>
+  </table>
+
+  <h2>关于内置（vendored）修改</h2>
+  <p>为适配平板编辑与预览，TypenTeX 修改了两个开源组件并以内置方式编译进安装包：</p>
+  <ul>
+    <li><code>flutter_code_editor</code>（Apache-2.0）：行号对齐、折叠与输入法修复；</li>
+    <li><code>pdfx</code>（MIT）：渲染线程、翻页预取、页码同步与失败重试。</li>
+  </ul>
+  <p>修改后的源码不对外分发，仅以二进制形式随应用发布。按 Apache-2.0 第 4(b) 条，上述修改事实与范围已在 <a href="licenses.html">许可与声明</a> 中说明，相关源文件均带 <code>VENDORED PATCH</code> 注释。</p>
+
+  <div class="note">清单由脚本从 <code>Cargo.lock</code> 自动生成；升级依赖后会随新版本重新生成。</div>
+</main>
+
+<footer>
+  <div class="ft-links">
+    <a href="index.html">首页</a>
+    <a href="licenses.html">许可与声明</a>
+    <a href="third_party_notices.html">组件清单</a>
+    <a href="privacy.html">隐私说明</a>
+    <a href="https://github.com/Both-Edward/TypenTeX" target="_blank" rel="noopener">GitHub 仓库</a>
+  </div>
+  <div class="mono">© 2026 TypenTeX · All rights reserved.</div>
+  <div class="ft-note">TypenTeX 为专有软件；内置第三方组件版权归其各自作者所有。</div>
+</footer>
+
+<script src="JavaScript/main.js"></script>
+</body>
+</html>

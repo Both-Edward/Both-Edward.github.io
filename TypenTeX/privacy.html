@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>隐私说明 — TypenTeX</title>
+  <meta name="description" content="TypenTeX 的隐私说明：不收集、不上传文档内容，仅在检查更新与首次编译下载宏包时联网。" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231a1a2e'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-size='34' fill='%23d6336c' text-anchor='middle'%3ETt%3C/text%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="CSS/style.css" />
+</head>
+<body>
+
+<nav>
+  <div class="nav-in">
+    <a class="logo" href="index.html"><span class="tt">Tt</span> TypenTeX <span class="ver">v0.0.1</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html#features">功能</a></li>
+      <li><a href="index.html#quickstart">上手</a></li>
+      <li><a href="index.html#download">下载</a></li>
+      <li><a href="index.html#about">关于</a></li>
+      <li><a href="licenses.html">版权</a></li>
+    </ul>
+    <a class="gh-chip" href="https://github.com/Both-Edward/TypenTeX" target="_blank" rel="noopener">
+      <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+      GitHub
+    </a>
+  </div>
+</nav>
+
+<main class="doc">
+  <a class="back" href="index.html">&larr; 返回首页</a>
+  <h1>隐私说明</h1>
+  <div class="doc-sub">更新日期：2026-11-05 · 适用于 TypenTeX Android 版</div>
+
+  <p>TypenTeX 是一款本地运行的 LaTeX 编辑器，<strong>不收集、不上传你的文档内容，也不建立用户账号</strong>。下面逐项说明应用会接触到哪些数据，以及联网发生在什么时候。</p>
+
+  <h2>一、不收集的信息</h2>
+  <ul>
+    <li>不要求注册或登录，没有账号体系；</li>
+    <li>不采集设备标识符、IMEI、MAC 地址、位置、通讯录、剪贴板等任何系统信息；</li>
+    <li>不含统计埋点、崩溃上报、广告或第三方分析 SDK；</li>
+    <li>不会把你的 <code>.tex</code>、<code>.bib</code>、图片、生成的 PDF 或编译日志发送到任何服务器。</li>
+  </ul>
+
+  <h2>二、仅在本机读写的数据</h2>
+  <table>
+    <thead>
+      <tr><th>数据</th><th>位置</th><th>用途</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>项目文件</td><td>你通过系统文件选择器授权的目录</td><td>编辑、编译、重命名、移动</td></tr>
+      <tr><td><code>page_info.txt</code></td><td>项目根目录（可自行删除）</td><td>记住 PDF 阅读位置（页码、缩放、页内位置）</td></tr>
+      <tr><td>编译日志</td><td>应用内显示，不外传</td><td>排查编译错误</td></tr>
+      <tr><td>宏包缓存</td><td>应用私有目录</td><td>避免重复下载，支持离线编译</td></tr>
+    </tbody>
+  </table>
+  <p class="spaced">应用只访问你明确授权的目录，不会扫描其他存储位置。</p>
+
+  <h2>三、联网行为（仅两处）</h2>
+  <ol>
+    <li><strong>检查更新</strong>：在菜单里点击检查更新时，向 <code>api.github.com</code> 请求本项目的最新发布信息，用于比较版本号。该请求不携带任何用户数据，但按 HTTP 协议，GitHub 会收到你的 IP 地址与常规请求头；是否发起检查完全由你触发，应用不会在后台自动检查。</li>
+    <li><strong>首次编译下载宏包</strong>：编译所需但本地尚未缓存的 TeX 宏包，会从 Tectonic 的官方宏包源下载。该过程只传输宏包文件，不包含你的文档内容；缓存完成后，后续编译可完全离线进行。</li>
+  </ol>
+  <p>除此之外应用不会主动联网。</p>
+
+  <h2>四、权限说明</h2>
+  <table>
+    <thead>
+      <tr><th>权限</th><th>原因</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>存储 / 目录访问</td><td>通过系统文件选择器（SAF）读写你指定的 LaTeX 项目目录</td></tr>
+      <tr><td>网络</td><td>上述检查更新与宏包下载</td></tr>
+    </tbody>
+  </table>
+
+  <h2>五、数据留存与删除</h2>
+  <ul>
+    <li>所有数据都在你的设备上，卸载应用后应用私有目录（含宏包缓存）随之删除；</li>
+    <li>项目目录内的文件（含 <code>page_info.txt</code>）由你自行管理，卸载应用不会删除它们；</li>
+    <li>由于不收集任何数据，不存在「向开发者申请删除个人数据」的情形。</li>
+  </ul>
+
+  <h2>六、第三方组件</h2>
+  <p>应用内置的第三方组件（Tectonic、Flutter、pdfx 等）不包含任何数据采集功能，其许可信息见 <a href="licenses.html">许可与声明</a>。</p>
+
+  <h2>七、变更与联系方式</h2>
+  <p>本说明如随功能变化而调整，会在本页更新并注明日期。对本说明有疑问，或发现与描述不符的行为，请提交 <a href="https://github.com/Both-Edward/TypenTeX/issues" target="_blank" rel="noopener">GitHub Issue</a>。</p>
+</main>
+
+<footer>
+  <div class="ft-links">
+    <a href="index.html">首页</a>
+    <a href="licenses.html">许可与声明</a>
+    <a href="third_party_notices.html">组件清单</a>
+    <a href="privacy.html">隐私说明</a>
+    <a href="https://github.com/Both-Edward/TypenTeX" target="_blank" rel="noopener">GitHub 仓库</a>
+  </div>
+  <div class="mono">© 2026 TypenTeX · All rights reserved.</div>
+  <div class="ft-note">TypenTeX 为专有软件；内置第三方组件版权归其各自作者所有。</div>
+</footer>
+
+<script src="JavaScript/main.js"></script>
+</body>
+</html>
