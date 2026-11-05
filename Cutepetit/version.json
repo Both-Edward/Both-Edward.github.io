@@ -1,0 +1,12 @@
+{
+  "_comment": "同源兜底数据：GitHub API 被限流、jsDelivr 被墙、公共代理失联时的最终数据源。每次发布新 Release 后请手动更新 tag_name / published_at / assets 三项。",
+  "tag_name": "v1.1.2",
+  "published_at": "2026-03-15T13:11:09Z",
+  "html_url": "https://github.com/Both-Edward/Cutepetit/releases/tag/v1.1.2",
+  "assets": [
+    {
+      "name": "Cutepetit-Setup-1.1.2.exe",
+      "browser_download_url": "https://github.com/Both-Edward/Cutepetit/releases/download/v1.1.2/Cutepetit-Setup-1.1.2.exe"
+    }
+  ]
+}

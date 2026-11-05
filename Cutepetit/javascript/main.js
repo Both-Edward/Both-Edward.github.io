@@ -420,7 +420,12 @@ function applyTranslations(t) {
 
   /* Version loading placeholder (textContent, not innerHTML) */
   const hvtxt = document.getElementById('hvtxt');
-  if (hvtxt && t.hero_version_loading) hvtxt.textContent = t.hero_version_loading;
+  if (hvtxt) {
+    /* 全部数据源失败后切语言，保持兜底文案而不是回到"加载中" */
+    hvtxt.textContent = window._releaseFailed
+      ? (t.dl_version_fallback || t.hero_version_loading || '')
+      : (t.hero_version_loading || '');
+  }
 
   /* Download version info placeholder */
   const dlvi = document.getElementById('dlvi');
@@ -462,13 +467,16 @@ function applyReleaseData(data, t) {
   }
 }
 
-/* ── 6. Fetch GitHub latest release（多级数据源，防 API 限流）──
+/* ── 6. Fetch GitHub latest release（多级数据源，防 API 限流 + 防墙）──
    按可靠性排序，前一个失败自动尝试下一个：
-   ① GitHub 官方 API（匿名每小时 60 次/IP，超限 403）
+   ① GitHub 官方 API（匿名每小时 60 次/IP，超限 403；大陆网络还可能直连失败）
    ② codetabs / allorigins CORS 代理转发官方 API（含完整 assets）
    ③ jsDelivr 数据 API（不受 GitHub 限流，只有 tag；附件命名规则
       固定为 Cutepetit-Setup-<ver>.exe，据此拼下载直链）
-   全部失败才回落到 HTML 默认（releases/latest 链接 + 占位文案）。 */
+   ④ 同源 version.json（与本页面同域，只要页面能打开就一定能拿到，
+      不受限流/墙影响；每次发新 Release 后需手动更新该文件）
+   全部失败才回落到 HTML 默认（releases/latest 链接 + 占位文案）。
+   每个源限时 8 秒，避免失联代理把整条链拖死。 */
 const REPO = 'Both-Edward/Cutepetit';
 
 function normalizeTag(tag) {
@@ -476,32 +484,40 @@ function normalizeTag(tag) {
   return tag ? (/^v/i.test(tag) ? tag : 'v' + tag) : null;
 }
 
+/* 带超时的 fetch：超时或失败一律 throw，交由外层换下一个源 */
+function fetchWithTimeout(url, ms) {
+  ms = ms || 8000;
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), ms);
+  return fetch(url, { signal: ctrl.signal }).finally(() => clearTimeout(timer));
+}
+
+/* 从 GitHub API JSON 提取标准 release 数据，非法则 throw */
+function parseGithubRelease(d) {
+  if (!d || !d.tag_name) throw new Error('empty tag');
+  return d;
+}
+
 const RELEASE_SOURCES = [
   async () => {
-    const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
+    const res = await fetchWithTimeout(`https://api.github.com/repos/${REPO}/releases/latest`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const d = await res.json();
-    if (!d.tag_name) throw new Error('empty tag');
-    return d;
+    return parseGithubRelease(await res.json());
   },
   async () => {
     const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
-    const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${target}`);
+    const res = await fetchWithTimeout(`https://api.codetabs.com/v1/proxy?quest=${target}`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const d = await res.json();
-    if (!d.tag_name) throw new Error('empty tag');
-    return d;
+    return parseGithubRelease(await res.json());
   },
   async () => {
     const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
-    const res = await fetch(`https://api.allorigins.win/raw?url=${target}`);
+    const res = await fetchWithTimeout(`https://api.allorigins.win/raw?url=${target}`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const d = await res.json();
-    if (!d.tag_name) throw new Error('empty tag');
-    return d;
+    return parseGithubRelease(await res.json());
   },
   async () => {
-    const res = await fetch(`https://data.jsdelivr.com/v1/packages/gh/${REPO}`);
+    const res = await fetchWithTimeout(`https://data.jsdelivr.com/v1/packages/gh/${REPO}`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
     const d = await res.json();
     const tag = normalizeTag(d && d.versions && d.versions[0] && d.versions[0].version);
@@ -517,6 +533,13 @@ const RELEASE_SOURCES = [
         browser_download_url: `https://github.com/${REPO}/releases/download/${tag}/Cutepetit-Setup-${bare}.exe`
       }]
     };
+  },
+  async () => {
+    /* 同源兜底：与页面同域，无 CORS、无配额、大陆可达。
+       数据需在每次发布新 Release 后手动更新。 */
+    const res = await fetchWithTimeout('version.json', 5000);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    return parseGithubRelease(await res.json());
   }
 ];
 
@@ -531,7 +554,11 @@ const RELEASE_SOURCES = [
       console.warn('[release] source failed:', err && err.message);
     }
   }
-  const t    = window._currentLang || {};
+  /* 全部失败：两处占位都要落回兜底文案，不能永远停在"加载中" */
+  window._releaseFailed = true;
+  const t     = window._currentLang || {};
+  const hvtxt = document.getElementById('hvtxt');
+  if (hvtxt) hvtxt.textContent = t.dl_version_fallback || 'Get the latest version via GitHub Releases';
   const dlvi = document.getElementById('dlvi');
   if (dlvi) dlvi.textContent = t.dl_version_fallback || 'Get the latest version via GitHub Releases';
 })();
