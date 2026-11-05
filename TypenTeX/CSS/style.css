@@ -37,23 +37,41 @@ nav {
   max-width: 1080px; margin: 0 auto; padding: 14px 24px;
   display: flex; align-items: center; justify-content: space-between;
 }
-.logo { display: flex; align-items: baseline; gap: 9px; font-weight: 700; font-size: 20px; }
+/* 品牌区：图标 + 名称 与 版本号是两个并列链接（HTML 不允许 a 嵌 a） */
+.brand { display: flex; align-items: center; gap: 10px; }
+.logo { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 20px; color: var(--ink); }
 .logo-ico {
   width: 28px; height: 28px; border-radius: 8px; display: block;
-  align-self: center;
   box-shadow: 0 1px 4px rgba(26,26,46,.25);
 }
-.logo .ver { font-size: 12px; color: var(--muted); font-weight: 400; }
 
-/* 版本号链接（直连 GitHub Releases，JS 会用最新 tag 更新文字） */
+/* 版本号：小圆角胶囊，直连 GitHub Releases（JS 用最新 tag 更新文字） */
 .ver-link {
-  color: inherit;
+  display: inline-block;
+  padding: 1px 9px;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.7;
+  color: var(--muted);
+  background: rgba(107, 114, 128, .08);
+  border: 1px solid rgba(107, 114, 128, .22);
+  border-radius: 999px;
   text-decoration: none;
-  border-bottom: 1px dashed currentColor;
-  transition: color .15s ease;
+  vertical-align: 2px;
+  transition: color .15s ease, border-color .15s ease, background .15s ease;
 }
-.ver-link:hover { color: var(--accent); }
-.logo .ver-link { border-bottom: none; }
+.ver-link:hover {
+  color: var(--accent-dark);
+  border-color: var(--accent);
+  background: #fdeef3;
+}
+/* Hero 徽章内的版本号：配合粉色底换成浅色胶囊 */
+.badge .ver-link {
+  color: var(--accent-dark);
+  background: rgba(255, 255, 255, .55);
+  border-color: rgba(166, 30, 77, .28);
+  vertical-align: baseline;
+}
 .nav-links { display: flex; gap: 28px; list-style: none; font-size: 15px; }
 .nav-links a { color: var(--muted); transition: color .2s; }
 .nav-links a:hover { color: var(--ink); }
