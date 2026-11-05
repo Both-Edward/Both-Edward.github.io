@@ -65,12 +65,12 @@ nav {
   border-color: var(--accent);
   background: #fdeef3;
 }
-/* Hero 徽章内的版本号：配合粉色底换成浅色胶囊 */
+/* Hero 徽章内的版本号：纯文本，无胶囊、无链接 */
 .badge .ver-link {
-  color: var(--accent-dark);
-  background: rgba(255, 255, 255, .55);
-  border-color: rgba(166, 30, 77, .28);
-  vertical-align: baseline;
+  padding: 0;
+  background: none;
+  border: none;
+  color: inherit;
 }
 /* 导航栏品牌区的版本号：紧跟品牌名的小字，不加胶囊 */
 .brand .ver-link {

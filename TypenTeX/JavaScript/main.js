@@ -35,7 +35,8 @@
 (function () {
   'use strict';
 
-  var links  = document.querySelectorAll('a.ver-link');
+  // 版本号元素：含 <a>（导航、下载区）与 <span>（hero 徽章，无链接）两种
+  var links  = document.querySelectorAll('.ver-link');
   var apkBtn = document.getElementById('dl-apk');
   if (!links.length && !apkBtn) return;
 
