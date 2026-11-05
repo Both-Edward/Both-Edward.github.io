@@ -462,21 +462,78 @@ function applyReleaseData(data, t) {
   }
 }
 
-/* ── 6. Fetch GitHub latest release ── */
+/* ── 6. Fetch GitHub latest release（多级数据源，防 API 限流）──
+   按可靠性排序，前一个失败自动尝试下一个：
+   ① GitHub 官方 API（匿名每小时 60 次/IP，超限 403）
+   ② codetabs / allorigins CORS 代理转发官方 API（含完整 assets）
+   ③ jsDelivr 数据 API（不受 GitHub 限流，只有 tag；附件命名规则
+      固定为 Cutepetit-Setup-<ver>.exe，据此拼下载直链）
+   全部失败才回落到 HTML 默认（releases/latest 链接 + 占位文案）。 */
 const REPO = 'Both-Edward/Cutepetit';
-(async function fetchLatestRelease() {
-  try {
+
+function normalizeTag(tag) {
+  tag = String(tag || '').trim();
+  return tag ? (/^v/i.test(tag) ? tag : 'v' + tag) : null;
+}
+
+const RELEASE_SOURCES = [
+  async () => {
     const res = await fetch(`https://api.github.com/repos/${REPO}/releases/latest`);
     if (!res.ok) throw new Error('HTTP ' + res.status);
-    const data = await res.json();
-    window._releaseData = data;
-    applyReleaseData(data);
-  } catch (err) {
-    console.warn('[release] Failed to fetch:', err);
-    const t   = window._currentLang || {};
-    const dlvi = document.getElementById('dlvi');
-    if (dlvi) dlvi.textContent = t.dl_version_fallback || 'Get the latest version via GitHub Releases';
+    const d = await res.json();
+    if (!d.tag_name) throw new Error('empty tag');
+    return d;
+  },
+  async () => {
+    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
+    const res = await fetch(`https://api.codetabs.com/v1/proxy?quest=${target}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    if (!d.tag_name) throw new Error('empty tag');
+    return d;
+  },
+  async () => {
+    const target = encodeURIComponent(`https://api.github.com/repos/${REPO}/releases/latest`);
+    const res = await fetch(`https://api.allorigins.win/raw?url=${target}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    if (!d.tag_name) throw new Error('empty tag');
+    return d;
+  },
+  async () => {
+    const res = await fetch(`https://data.jsdelivr.com/v1/packages/gh/${REPO}`);
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    const d = await res.json();
+    const tag = normalizeTag(d && d.versions && d.versions[0] && d.versions[0].version);
+    if (!tag) throw new Error('empty tag');
+    const bare = tag.replace(/^v/i, '');
+    /* jsDelivr 只有 tag：附件名按固定规则 Cutepetit-Setup-<ver>.exe 反推。
+       若未来改名，此源拼出的直链会 404，届时请同步修改这里。 */
+    return {
+      tag_name: tag,
+      published_at: null,
+      assets: [{
+        name: `Cutepetit-Setup-${bare}.exe`,
+        browser_download_url: `https://github.com/${REPO}/releases/download/${tag}/Cutepetit-Setup-${bare}.exe`
+      }]
+    };
   }
+];
+
+(async function fetchLatestRelease() {
+  for (const src of RELEASE_SOURCES) {
+    try {
+      const data = await src();
+      window._releaseData = data;
+      applyReleaseData(data);
+      return;
+    } catch (err) {
+      console.warn('[release] source failed:', err && err.message);
+    }
+  }
+  const t    = window._currentLang || {};
+  const dlvi = document.getElementById('dlvi');
+  if (dlvi) dlvi.textContent = t.dl_version_fallback || 'Get the latest version via GitHub Releases';
 })();
 
 /* ── 7. Language selector UI ── */
