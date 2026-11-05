@@ -87,7 +87,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "Enable mouse follow, open the music player, or import your own GIF to create a custom character.",
     "dl_title": "✨ Download Now",
     "dl_sub": "Get the latest stable release from GitHub Releases",
-    "dl_btn_latest": "Download Latest",
+    "dl_btn_latest": "Get it on GitHub Releases",
     "dl_btn_history": "All Release History",
     "dl_version_loading": "Fetching version info…",
     "dl_version_fallback": "Get the latest version via GitHub Releases",
@@ -146,7 +146,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "开启鼠标跟随、音乐播放器，或前往创建工具导入自己的 GIF 素材，打造专属角色。",
     "dl_title": "✨ 立即下载",
     "dl_sub": "从 GitHub Releases 获取最新稳定版本",
-    "dl_btn_latest": "下载最新版本",
+    "dl_btn_latest": "前往 Releases 下载",
     "dl_btn_history": "所有版本历史",
     "dl_version_loading": "正在获取版本信息…",
     "dl_version_fallback": "通过 GitHub Releases 获取最新版本",
@@ -205,7 +205,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "開啟滑鼠跟隨、音樂播放器，或前往建立工具匯入自己的 GIF 素材，打造專屬角色。",
     "dl_title": "✨ 立即下載",
     "dl_sub": "從 GitHub Releases 取得最新穩定版本",
-    "dl_btn_latest": "下載最新版本",
+    "dl_btn_latest": "前往 Releases 下載",
     "dl_btn_history": "所有版本歷史",
     "dl_version_loading": "正在取得版本資訊…",
     "dl_version_fallback": "透過 GitHub Releases 取得最新版本",
@@ -264,7 +264,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "マウス追従や音楽プレイヤーを有効にしたり、GIF素材を読み込んでオリジナルキャラを作りましょう。",
     "dl_title": "✨ 今すぐダウンロード",
     "dl_sub": "GitHub Releases から最新の安定版を入手",
-    "dl_btn_latest": "最新版をダウンロード",
+    "dl_btn_latest": "Releases からダウンロード",
     "dl_btn_history": "全リリース履歴",
     "dl_version_loading": "バージョン情報を取得中…",
     "dl_version_fallback": "GitHub Releases から最新バージョンを入手",
@@ -323,7 +323,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "Activez le suivi de souris, le lecteur musical, ou importez vos GIF pour créer un personnage original.",
     "dl_title": "✨ Télécharger maintenant",
     "dl_sub": "Obtenez la dernière version stable depuis GitHub Releases",
-    "dl_btn_latest": "Télécharger la dernière version",
+    "dl_btn_latest": "Télécharger depuis les Releases",
     "dl_btn_history": "Historique des versions",
     "dl_version_loading": "Récupération des informations de version…",
     "dl_version_fallback": "Obtenez la dernière version via GitHub Releases",
@@ -382,7 +382,7 @@ const LANG_BUNDLES = {
     "step_4_desc": "마우스 추적, 음악 플레이어를 활성화하거나 GIF 소재를 불러와 나만의 캐릭터를 만들어보세요.",
     "dl_title": "✨ 지금 다운로드",
     "dl_sub": "GitHub Releases에서 최신 안정 버전을 받아보세요",
-    "dl_btn_latest": "최신 버전 다운로드",
+    "dl_btn_latest": "Releases에서 다운로드",
     "dl_btn_history": "전체 릴리즈 기록",
     "dl_version_loading": "버전 정보를 가져오는 중…",
     "dl_version_fallback": "GitHub Releases에서 최신 버전을 받아보세요",
@@ -459,10 +459,10 @@ function applyReleaseData(data, t) {
   }
 
   if (data.assets && data.assets.length) {
-    const asset  = data.assets.find(a => a.name.endsWith('.exe')) || data.assets[0];
-    const dlMain = document.getElementById('dl-main');
+    const asset = data.assets.find(a => a.name.endsWith('.exe')) || data.assets[0];
+    /* 只有 hero 的「立即下载」走安装包直链；
+       下载区的「前往 Releases 下载」固定链接 releases 页，不直连。 */
     const heroDl = document.getElementById('hero-dl');
-    if (dlMain) dlMain.href = asset.browser_download_url;
     if (heroDl) heroDl.href = asset.browser_download_url;
   }
 }
